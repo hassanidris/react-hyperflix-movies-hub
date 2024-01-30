@@ -1,7 +1,6 @@
 //components
 import HeroBanner from "../components/HeroBanner";
 import Movies from "../components/Movies";
-import Navbar from "../components/NavBar";
 //data 
 import apiConfig from "../data/apiConfig";
 //hooks 
@@ -29,11 +28,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
-      <header>
-        <Navbar/>
-      </header>
-      <main>
+    <main>
         <div>
           <HeroBanner/>
         </div>
@@ -45,8 +40,5 @@ export default function Home() {
         </div>
 
       </main>
-      
-      <div>footer</div>
-    </div>
   );
 }

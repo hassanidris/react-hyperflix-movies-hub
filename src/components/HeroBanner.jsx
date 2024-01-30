@@ -7,7 +7,6 @@ const HeroBanner = () => {
         HeroBanner
         <Trailer/>
         <Details/>
-      
     </div>
   )
 }
