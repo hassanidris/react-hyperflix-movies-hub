@@ -16,8 +16,13 @@ export default function App() {
       let list = await apiConfig.getHomeList();
       setMovieList(list)
       console.log(list)
-    }
 
+      let detailss = await apiConfig.getMovieDetails();
+      console.log(detailss)
+
+      //catching details 
+      
+    }
     loadAll();
   }, [])
 

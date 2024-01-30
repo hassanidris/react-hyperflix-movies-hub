@@ -1,7 +1,7 @@
 const Movies = ({title, items}) => {
 
   
-  console.log(items)
+  //console.log(items)
 
   return(
     <div>
