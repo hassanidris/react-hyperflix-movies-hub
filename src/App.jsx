@@ -1,42 +1,18 @@
-//components
-import Movies from "./components/Movies";
-//data 
-import apiConfig from "./data/apiConfig";
-//hooks 
-import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Details from "./pages/Details";
 
-export default function App() {
 
-  const [movieList, setMovieList] = useState([]);
-
-  useEffect(() => {
-    const loadAll = async () => {
-      
-      //catching the lists 
-      let list = await apiConfig.getHomeList();
-      setMovieList(list)
-      console.log(list)
-
-      let detailss = await apiConfig.getMovieDetails();
-      console.log(detailss)
-
-      //catching details 
-      
-    }
-    loadAll();
-  }, [])
-
+function App() {
   return (
-    <div>
-      <header>Header</header>
-      <div>
-        <div>
-          {movieList.map((item, key)=>(
-            <Movies key={key} title={item.title} items={item.items}/>
-          ))}
-        </div>
-      </div>
-      <div>footer</div>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={ <Home/> } />
+        <Route path="/:id" element={ <Details/> } />
+        
+      </Routes>
     </div>
-  );
+  )
 }
+
+export default App

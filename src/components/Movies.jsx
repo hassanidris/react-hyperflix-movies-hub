@@ -1,6 +1,4 @@
 const Movies = ({title, items}) => {
-
-  
   //console.log(items)
 
   return(
