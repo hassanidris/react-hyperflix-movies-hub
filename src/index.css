@@ -4,6 +4,6 @@
 
 @layer components {
     body {
-        @apply h-screen
+        @apply bg-m_black h-screen
     }
 }
