@@ -4,7 +4,7 @@ import Trailer from "./Trailer";
 const HeroBanner = () => {
   return(
     <div>
-        HeroBanner
+        This is the HeroBanner
         <Trailer/>
         <Details/>
     </div>
