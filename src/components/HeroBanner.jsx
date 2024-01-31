@@ -1,12 +1,14 @@
 import Details from "../pages/Details";
 import Trailer from "./Trailer";
 
-const HeroBanner = () => {
+const HeroBanner = ({item}) => {
+
+  console.log(item)
+
   return(
-    <div>
-        This is the HeroBanner
-        <Trailer/>
-        <Details/>
+    <div className="bg-slate-900 text-white">
+      <Trailer/>
+      <Details/>
     </div>
   )
 }
