@@ -41,7 +41,7 @@ export default function Home() {
       <main>
         <div className="flex">
           {movieBanner &&
-            <HeroBanner items={movieBanner} />
+            <HeroBanner itemBanner={movieBanner} />
           }
         </div>
         <div className="flex">
