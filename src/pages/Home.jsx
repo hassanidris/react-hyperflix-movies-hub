@@ -29,8 +29,8 @@ export default function Home() {
       let randomInformation = await apiConfig.getMovieDetails(catchBanner.id)
       // change the state of hero banner 
       setMovieBanner(randomInformation);
-      console.log(randomInformation);
-
+      
+      //console.log(randomInformation);
       //catching details 
       //let details = await apiConfig.getMovieDetails();
       //console.log(details)
@@ -45,7 +45,6 @@ export default function Home() {
             <HeroBanner items={movieBanner} />
           }
         </div>
-
         <div className="flex">
           {movieList.map((item, key)=>(
             <Movies key={key} title={item.title} items={item.items} />
