@@ -39,12 +39,12 @@ export default function Home() {
 
   return (
       <main>
-        <div className="flex">
+        <div>
           {movieBanner &&
             <HeroBanner itemBanner={movieBanner} />
           }
         </div>
-        <div className="flex">
+        <div>
           {movieList.map((item, key)=>(
             <Movies key={key} title={item.title} items={item.items} />
           ))}
