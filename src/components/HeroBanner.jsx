@@ -7,9 +7,18 @@ const HeroBanner = ({items}) => {
 
   return(
     <div className="bg-slate-900 text-white">
+      <div>
+        <h2>{items.title}</h2>
+        <img src={`https://image.tmdb.org/t/p/w200${items.poster_path}`} alt={items.title}/>
+        <p>{items.overview}</p>
+        <div>{/* release data, genre, vote_average*/}
+        </div>
+        <div>
+          <Trailer/><Details/>
+        </div>
+      </div>
       
-      <Trailer/>
-      <Details/>
+      <img src={`https://image.tmdb.org/t/p/w500${items.backdrop_path}`} alt={items.title}/>
     </div>
   )
 }

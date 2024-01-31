@@ -46,14 +46,22 @@ export default {
             },
         ];
     },
-    getMovieDetails: async (movieId) => {
-        return [
-            {
-                // example path https://api.themoviedb.org/3/movie/550?api_key=60d07ebef5dc7eac7a2c1943ca443902&language=en-US&append_to_response=credits
-                info: await basicFetch (`/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits`)
-            },
-            
-        ]
+    getMovieDetails: async (movieId, type) => {
+        let info = {};
+
+        if(movieId) {
+            switch(type) {
+                case 'movie':
+                    info = await basicFetch (`/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits`);
+                    // example path https://api.themoviedb.org/3/movie/550?api_key=60d07ebef5dc7eac7a2c1943ca443902&language=en-US&append_to_response=credits
+                break;
+                default:
+                    info = null;
+                break;
+            }
+        }
+
+        return info;
     }     
 }
 

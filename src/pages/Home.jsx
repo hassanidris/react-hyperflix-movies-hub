@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [movieList, setMovieList] = useState([]);
-  const [movieBanner, setMovieBanner] = useState(null);
+  const [movieBanner, setMovieBanner] = useState([null]);
 
   useEffect(() => {
     const loadAll = async () => {
@@ -26,11 +26,10 @@ export default function Home() {
       // catch the specificly movie 
       let catchBanner = bannerTrending[0].items.results[randomBanner];
       //match the link of list and the link with more informations about the movie 
-      let randomInformation = await apiConfig.getMovieDetails(catchBanner.id)
+      let randomInformation = await apiConfig.getMovieDetails(catchBanner.id, 'movie')
       // change the state of hero banner 
       setMovieBanner(randomInformation);
-      
-      //console.log(randomInformation);
+
       //catching details 
       //let details = await apiConfig.getMovieDetails();
       //console.log(details)
