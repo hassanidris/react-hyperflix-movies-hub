@@ -28,10 +28,15 @@ export default function Details() {
       genres.push(movieDetails.genres[i].name);
     }
 
+  // this case needed be used with Optional chaining (?.) 
   let cast = [];
     for(let i in movieDetails?.credits?.cast){
       cast.push( movieDetails.credits.cast[i].name);
     }
+  let production = [];
+  for(let i in movieDetails?.credits?.crew){
+    production.push( movieDetails.credits.crew[i].name);
+  }
 
   return (
     <div>
@@ -61,7 +66,12 @@ export default function Details() {
           <div> Revenue: {movieDetails.revenue}</div>
         </div>
         <div>
-        <div> Cast: {cast.join(', ')}</div>
+        <div> Cast: 
+          <div>{cast.join(', ')}</div>
+        </div>
+        <div> Production: 
+          <div>{production.join(', ')}</div>
+        </div>
         <div> popularity: {movieDetails.popularity}</div>
         <div> popularity: {movieDetails.popularity}</div>
         <div> popularity: {movieDetails.popularity}</div>
