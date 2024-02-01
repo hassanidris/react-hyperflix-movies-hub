@@ -4,14 +4,12 @@ import Details from "./pages/Details";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
 
-
-
 function App() {
   return (
     <div>
       <BrowserRouter>
       <Navbar/>
-      <div style={{marginTop: 100, color: 'white'}}>
+      <div style={{marginTop: 200, color: 'white', background: 'black'}}>
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/movie/:id" element={ <Details /> } />
