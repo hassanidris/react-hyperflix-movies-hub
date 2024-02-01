@@ -1,9 +1,17 @@
-import Details from "../pages/Details";
+import { useNavigate } from "react-router-dom";
+import BtnDetails from "./BtnDetails";
 import Trailer from "./Trailer";
 
 const HeroBanner = ({itemBanner}) => {
 
+  const navigate = useNavigate();
+
+  const navigateToMovie = (movieId) => {
+    navigate(`/movie/${movieId}`)
+  }
+
   const originalImg = 'https://image.tmdb.org/t/p/original';
+
   let releaseYear = new Date(itemBanner.release_date);
 
   let genres = [];
@@ -24,7 +32,9 @@ const HeroBanner = ({itemBanner}) => {
         <p>{itemBanner.overview}</p>
         </div>
         <div>
-          <Trailer/><Details/>
+          <Trailer/>
+
+          <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />
         </div>
       </div>
       
