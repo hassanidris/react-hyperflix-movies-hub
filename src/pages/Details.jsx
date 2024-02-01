@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import apiConfig from '../data/apiConfig';
 import { useEffect, useState } from 'react';
 import Trailer from '../components/Trailer';
+import Cast from '../components/Cast';
 
 
 export default function Details() {
@@ -28,14 +29,11 @@ export default function Details() {
       genres.push(movieDetails.genres[i].name);
     }
 
-  // this case needed be used with Optional chaining (?.) 
-  let cast = [];
-    for(let i in movieDetails?.credits?.cast){
-      cast.push( movieDetails.credits.cast[i].name);
-    }
-  let production = [];
+  let castInfo = movieDetails?.credits?.cast;
+  //crew information
+  let productionName = [];
   for(let i in movieDetails?.credits?.crew){
-    production.push( movieDetails.credits.crew[i].name);
+    productionName.push( movieDetails.credits.crew[i].name);
   }
 
   return (
@@ -67,34 +65,23 @@ export default function Details() {
           <div> Revenue: {movieDetails.revenue}</div>
         </div>
         <div>
-        <div> Cast: 
-          <div>{cast.join(', ')}</div>
+        <div>
+          <p>Cast:</p>
+          {
+            castInfo.map((actor)=>{
+              return(
+                <Cast
+                  key={actor.id}
+                  name={actor.name} 
+                  character={actor.character} 
+                  image={actor.profile_path}/>
+              )
+            })
+          }
         </div>
         <div> Production: 
-          <div>{production.join(', ')}</div>
+          <div></div>
         </div>
-        <div> popularity: {movieDetails.popularity}</div>
-        <div> popularity: {movieDetails.popularity}</div>
-        <div> popularity: {movieDetails.popularity}</div>
-        <div> popularity: {movieDetails.popularity}</div>
-        <div> popularity: {movieDetails.popularity}</div>
-        <div> popularity: {movieDetails.popularity}</div>
-        <div> popularity: {movieDetails.popularity}</div>
-        {/*cast*/}
-          {/*image*/}
-          {/*name*/}
-          {/*Character*/}
-        {/*Production*/}
-          {/*Director*/}
-            {/*image*/}
-            {/*name*/}
-            {/*Character*/}
-          {/*"Writing*/}
-            {/*image*/}
-            {/*name*/}
-            {/*Character*/}
-
-
         </div>
       </div>
     </div>
