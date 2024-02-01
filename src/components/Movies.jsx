@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import SeeBtnDetails from "./SeeBtnDetails";
+import BtnDetails from "./BtnDetails";
 
 const Movies = ({title, items}) => {
   console.log(items)
@@ -18,7 +18,7 @@ const Movies = ({title, items}) => {
             <p>{item.title || item.name}</p>
             <img src={`https://image.tmdb.org/t/p/w200${item.poster_path}`} alt={item.original_title}/>
 
-            <SeeBtnDetails onClick={() => navigateToMovie(item.id)} />
+            <BtnDetails onClick={() => navigateToMovie(item.id)} />
           </div>
         ))}
       </div>
