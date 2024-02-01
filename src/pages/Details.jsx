@@ -47,6 +47,7 @@ export default function Details() {
             <img src={`https://image.tmdb.org/t/p/w200${movieDetails.poster_path}`} alt={movieDetails.title}/>
             <div>
               <h3>{movieDetails.title}</h3>
+              <div>Duration:{movieDetails.runtime}</div>
               <div> Release: {releaseYear.getFullYear()}</div> 
               <div> Status: {movieDetails.status}</div>
               <div> Genres: {genres.join(', ')}</div>
