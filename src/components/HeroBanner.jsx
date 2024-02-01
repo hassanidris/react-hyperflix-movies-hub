@@ -11,7 +11,7 @@ const HeroBanner = ({itemBanner}) => {
         genres.push( itemBanner.genres[i].name );
     }
 
-  console.log(itemBanner)
+  //console.log(itemBanner)
 
   return(
     <div className=" flex items-end bg-gray-800 text-white h-[80vh] pt-20" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${itemBanner.backdrop_path})`, backgroundSize: 'cover'}}>

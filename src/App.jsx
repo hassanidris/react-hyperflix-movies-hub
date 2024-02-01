@@ -10,12 +10,14 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={ <Home /> } />
-        <Route path="/:id" element={ <Details /> } />
-        
-      </Routes>
+      <Navbar/>
+      <div style={{marginTop: 100, color: 'white'}}>
+        <Routes>
+          <Route path="/" element={ <Home /> } />
+          <Route path="/movie/:id" element={ <Details /> } />
+        </Routes>        
+      </div>
+
       <Footer />
       </BrowserRouter>
     </div>
