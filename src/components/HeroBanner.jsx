@@ -10,7 +10,7 @@ const HeroBanner = ({itemBanner}) => {
     navigate(`/movie/${movieId}`)
   }
 
-  const originalImg = 'https://image.tmdb.org/t/p/original';
+  //const originalImg = 'https://image.tmdb.org/t/p/original';
 
   let releaseYear = new Date(itemBanner.release_date);
 

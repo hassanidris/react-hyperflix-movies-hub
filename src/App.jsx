@@ -9,7 +9,7 @@ function App() {
     <div>
       <BrowserRouter>
       <Navbar/>
-      <div style={{marginTop: 200, color: 'white', background: 'black'}}>
+      <div style={{ color: 'white', background: 'black'}}>
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/movie/:id" element={ <Details /> } />
