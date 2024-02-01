@@ -61,7 +61,7 @@ export default function Details() {
           <div> Revenue: {movieDetails.revenue}</div>
         </div>
         <div>
-        <div> Genres: {cast.join(', ')}</div>
+        <div> Cast: {cast.join(', ')}</div>
         <div> popularity: {movieDetails.popularity}</div>
         <div> popularity: {movieDetails.popularity}</div>
         <div> popularity: {movieDetails.popularity}</div>
