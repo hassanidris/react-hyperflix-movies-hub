@@ -1,12 +1,13 @@
-import { apiUrl,  apiKey } from './apiData';
+import { apiUrl, apiKey } from "./apiData";
 
 const basicFetch = async (keyPass) => {
   const response = await fetch(`${apiUrl}${keyPass}`);
   const json = await response.json();
   return json;
-}
+};
 
 export default {
+
     getHomeList: async () => {
         return [
             {

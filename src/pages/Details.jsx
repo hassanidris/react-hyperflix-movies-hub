@@ -38,6 +38,7 @@ export default function Details() {
   }
 
   return (
+
     <div>
       <div>
         <div className=" flex items-end bg-gray-800 text-white h-[80vh] pt-20" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path})`, backgroundSize: 'cover'}}>
@@ -97,5 +98,6 @@ export default function Details() {
         </div>
       </div>
     </div>
+
   );
 }
