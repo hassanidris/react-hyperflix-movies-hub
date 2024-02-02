@@ -53,14 +53,14 @@ export default {
           `/discover/movie?with_genres=10749&api_key=${apiKey}`
         ),
       },
-      {
-        listId: 7,
-        slug: "documentary",
-        title: "Documentary",
-        items: await basicFetch(
-          `/discover/movie?with_genres=99&api_key=${apiKey}`
-        ),
-      },
+      //   {
+      //     listId: 7,
+      //     slug: "documentary",
+      //     title: "Documentary",
+      //     items: await basicFetch(
+      //       `/discover/movie?with_genres=99&api_key=${apiKey}`
+      //     ),
+      //   },
     ];
   },
   getMovieDetails: async (movieId, type) => {
