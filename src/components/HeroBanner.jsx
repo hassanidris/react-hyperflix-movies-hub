@@ -40,10 +40,10 @@ const HeroBanner = ({itemBanner}) => {
         {/* Dark overlay */}
         {/* <div className="bg-black opacity-50 z-10"></div> */}
 
-        <div className="w-full h-full flex items-end p-10 gap-5 bg-m_black/80">
-          <div className="w-[300px] h-auto">
+        <div className="w-full h-full flex flex-col justify-center md:flex-row items-start sm:items-end p-10 gap-5 bg-m_black/80">
+          <div className="w-[150px] md:w-[300px] h-auto">
             <img
-              className="w-full h-full object-cover hidden lg:block"
+              className="w-full h-full object-cover"
               src={`https://image.tmdb.org/t/p/w200${itemBanner.poster_path}`}
               alt={itemBanner.title}
             />
