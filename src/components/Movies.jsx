@@ -1,10 +1,20 @@
+
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+import BtnDetails from "./BtnDetails";
 import {FaHeart, FaRegHeart } from 'react-icons/fa';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
+
 const Movies = ({title, items, key}) => {
-  const [like, setLike] = useState(false);
+   const [like, setLike] = useState(false);
   const [sliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
-  //console.log(items)
+  console.log(items)
+  const navigate = useNavigate();
+
+  const navigateToMovie = (movieId) => {
+    navigate(`/movie/${movieId}`)
+  }
+
 
   const slideLeft = () => {
     let slider = document.getElementById(sliderId);
@@ -17,6 +27,7 @@ const Movies = ({title, items, key}) => {
   }
 
   return(
+
     <div className=' px-8'>
       <h2 className=" font-amaranth text-m_white font-bold md:text-3xl p-4 mt-10">{title}</h2>
       <div className=" relative flex items-center group">
@@ -30,11 +41,13 @@ const Movies = ({title, items, key}) => {
               <p>
                 {like ? <FaHeart className=' absolute top-4 left-4 text-m_white' /> : <FaRegHeart className=' absolute top-4 left-4 text-m_white' onClick={()=>setLike(!like)}/>}
               </p>
+              <BtnDetails onClick={() => navigateToMovie(item.id)} />
               </div>
             </div>
           ))}
         </div>
         <IoIosArrowDroprightCircle onClick={slideRight} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+
       </div>
     </div>
   )

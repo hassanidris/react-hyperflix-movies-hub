@@ -16,7 +16,7 @@ export default function Home() {
       //catching the lists 
       let list = await apiConfig.getHomeList();
       setMovieList(list)
-      //console.log(list)
+      console.log(list)
 
       //Catching HeroBanner (random)
       //filter the first list setted on apiConfig
@@ -26,13 +26,20 @@ export default function Home() {
       // catch the specificly movie 
       let catchBanner = bannerTrending[0].items.results[randomBanner];
       //match the link of list and the link with more informations about the movie 
-      let randomInformation = await apiConfig.getMovieDetails(catchBanner.id, 'movie')
+      let randomInformation = await apiConfig.getMovieForId(catchBanner.id);
       // change the state of hero banner 
-      setMovieBanner(randomInformation);
+      setMovieBanner(randomInformation[0].info);
 
-      //catching details 
-      //let details = await apiConfig.getMovieDetails();
-      //console.log(details)
+     /* console.log({
+        list,
+        results: bannerTrending[0].items.results,
+        bannerTrending,
+        randomBanner,
+        catchBanner,
+        randomInformation
+      })
+    */
+
     }
     loadAll();
   }, [])

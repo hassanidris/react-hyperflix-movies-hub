@@ -1,15 +1,28 @@
-import Details from "../pages/Details";
+import { useNavigate } from "react-router-dom";
+import BtnDetails from "./BtnDetails";
 import Trailer from "./Trailer";
 
 const HeroBanner = ({itemBanner}) => {
 
+
+  const navigate = useNavigate();
+
+  const navigateToMovie = (movieId) => {
+    navigate(`/movie/${movieId}`)
+  }
+
+  //const originalImg = 'https://image.tmdb.org/t/p/original';
+
+
  
+
   let releaseYear = new Date(itemBanner.release_date);
 
   let genres = [];
     for(let i in itemBanner.genres) {
         genres.push( itemBanner.genres[i].name );
     }
+
 
   console.log(itemBanner)
   // flex items-end bg-gray-800 text-white h-[80vh] pt-20
@@ -48,9 +61,10 @@ const HeroBanner = ({itemBanner}) => {
             </div>
             <div className=" flex mt-4 gap-3">
               <Trailer />
-              <Details />
+              <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />
             </div>
           </div>
+
         </div>
       </div>
     </div>
