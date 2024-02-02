@@ -8,5 +8,21 @@
     body {
         @apply bg-m_black h-screen font-open_sans
     }
+
+    .btn {
+        @apply text-m_white bg-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-base
+
+    }
+    .btn:hover {
+        @apply text-m_gold bg-opacity-0 border-[1px] border-m_gold
+    }
+
+    .btn-outline {
+        @apply text-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-base
+
+    }
+    .btn-outline:hover {
+        @apply text-m_white bg-m_gold border-[1px] border-m_gold
+    }
 }
 

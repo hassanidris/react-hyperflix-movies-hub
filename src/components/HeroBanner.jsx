@@ -27,7 +27,7 @@ const HeroBanner = ({itemBanner}) => {
         {/* Dark overlay */}
         {/* <div className="bg-black opacity-50 z-10"></div> */}
 
-        <div className="w-full h-full flex items-end p-10 gap-5 bg-m_black/50">
+        <div className="w-full h-full flex items-end p-10 gap-5 bg-m_black/80">
           <div className="w-[300px] h-auto">
             <img
               className="w-full h-full object-cover hidden lg:block"
@@ -46,7 +46,7 @@ const HeroBanner = ({itemBanner}) => {
               </p>
               <p className="w-full lg:w-2/3">{itemBanner.overview}</p>
             </div>
-            <div>
+            <div className=" flex mt-4 gap-3">
               <Trailer />
               <Details />
             </div>

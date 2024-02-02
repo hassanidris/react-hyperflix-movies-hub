@@ -1,8 +1,8 @@
 export default function Details() {
   
   return (
-    <div >
-      Details
-    </div>
+    <button className="btn-outline">
+      More Details
+    </button>
   );
 }
