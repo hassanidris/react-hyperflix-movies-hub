@@ -6,7 +6,7 @@
 
 @layer components {
     body {
-        @apply bg-m_black h-screen
+        @apply bg-m_black h-screen font-open_sans
     }
 }
 
