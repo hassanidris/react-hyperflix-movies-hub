@@ -1,7 +1,7 @@
 const Trailer = () => {
   return(
     <button className="btn">
-      Watchi Trailer
+      Watch Trailer
     </button>
   )
 }
