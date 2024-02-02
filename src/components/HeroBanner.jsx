@@ -12,9 +12,9 @@ const HeroBanner = ({itemBanner}) => {
     }
 
   console.log(itemBanner)
-  // flex items-end bg-gray-800 text-white h-[90vh] pt-20
+  // flex items-end bg-gray-800 text-white h-[80vh] pt-20
   return (
-    <div className="w-full h-[90vh] text-white font-open_sans relative">
+    <div className="w-full h-[80vh] text-white font-open_sans relative">
       <div
         className="h-full w-full flex items-end"
         style={{

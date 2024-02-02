@@ -18,7 +18,7 @@ export default {
       {
         listId: 2,
         slug: "toprated",
-        title: "Toprated",
+        title: "Top-Rated",
         items: await basicFetch(`/movie/top_rated?&api_key=${apiKey}`),
       },
       {
@@ -40,7 +40,7 @@ export default {
       {
         listId: 5,
         slug: "horror",
-        title: "Terror",
+        title: "Herror",
         items: await basicFetch(
           `/discover/movie?with_genres=27&api_key=${apiKey}`
         ),
