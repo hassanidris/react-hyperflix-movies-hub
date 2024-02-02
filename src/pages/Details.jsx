@@ -7,6 +7,7 @@ import Cast from '../components/Cast';
 
 export default function Details() {
   let { id } = useParams();
+  //console.log(id)
 
   const [movieDetails, setMovieDetails] = useState({});
 
@@ -29,7 +30,7 @@ export default function Details() {
       genres.push(movieDetails.genres[i].name);
     }
 
-  let castInfo = movieDetails?.credits?.cast;
+
   //crew information
   let productionName = [];
   for(let i in movieDetails?.credits?.crew){
@@ -68,7 +69,7 @@ export default function Details() {
         <div>
           <p>Cast:</p>
           {
-            castInfo.map((actor)=>{
+            movieDetails?.credits?.cast.map((actor)=>{
               return(
                 <Cast
                   key={actor.id}
