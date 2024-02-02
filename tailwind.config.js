@@ -9,7 +9,12 @@ export default {
       m_lightGrey: "#7b7b7b",
       m_white: "#eeeeee",
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        amaranth: ["Amaranth", "sans-serif"],
+        open_sans: ["Open Sans", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
