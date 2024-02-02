@@ -1,4 +1,5 @@
 import SearchField from "./SearchField";
+import {FaHeart, FaRegHeart } from 'react-icons/fa';
 import logo_desk from '../assets/hyperflix-logo-desk.png';
 import logo_mob from '../assets/hyperflix-logo-mob.png';
 import { Link } from "react-router-dom";
@@ -14,7 +15,11 @@ const Navbar = () => {
         <img className=" block sm:hidden w-12" src={logo_mob} alt="" />
         </Link>
       </div>
-      <SearchField/>
+      <div className=" flex justify-center items-center gap-2">
+        <SearchField/>
+        <span> | </span>
+      <FaRegHeart size={30} className=" text-m_gold" />
+      </div>
       
     </div>
   )
