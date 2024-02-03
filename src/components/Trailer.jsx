@@ -20,7 +20,7 @@ const Trailer = () => {
     loadTrailer();
   }, [id])
 
-  console.log(movieTrailer)
+  //console.log(movieTrailer)
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -35,18 +35,10 @@ const Trailer = () => {
 
   return (
     <div style={{color: 'red', marginTop:200 }}>
-      {
-        movieTrailer.results.map((trailers)=>{
-          return(
-            <div key={trailers.id}>
-              <p>{trailers.name}</p>
-              <iframe 
-                src={`https://www.youtube.com/embed/${trailers.key}`}>
-              </iframe>
-            </div> 
-          )
-        })
-      }
+      <div>
+        <div>{movieTrailer?.results[0]?.name}</div>
+        <iframe src={`https://www.youtube.com/embed/${movieTrailer?.results[0]?.key}`}></iframe>
+      </div>
       <div>
         <button onClick={handleOpenModal}>Open Modal</button>
         <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
