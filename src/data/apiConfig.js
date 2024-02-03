@@ -40,21 +40,22 @@ export default {
                 title: 'Romance',
                 items: await basicFetch(`/discover/movie?with_genres=10749&api_key=${apiKey}`)
             },
-            {
-                slug: 'documentary',
-                title: 'Documentary',
-                items: await basicFetch(`/discover/movie?with_genres=99&api_key=${apiKey}`)
-            },
+            //{
+            //    slug: 'documentary',
+            //    title: 'Documentary',
+            //    items: await basicFetch(`/discover/movie?with_genres=99&api_key=${apiKey}`)
+            //},
         ];
     }, 
     getMovieForId: async (movieId) => {
         return [
             {
                 // example path https://api.themoviedb.org/3/movie/550?api_key=60d07ebef5dc7eac7a2c1943ca443902&language=en-US&append_to_response=credits
-                info: await basicFetch (`/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,videos`)
+                info: await basicFetch (`/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits`)
             },
             
         ]
-    },
+    }
+
 }
 
