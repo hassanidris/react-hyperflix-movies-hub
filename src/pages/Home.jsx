@@ -16,15 +16,13 @@ export default function Home() {
       //catching the lists 
       let list = await apiConfig.getHomeList();
       setMovieList(list)
-      //console.log(list)
-
       //Catching HeroBanner (random)
       //filter the first list setted on apiConfig
-      let bannerTrending = list.filter(i => i.slug === 'trending');
+      let bannerToprated = list.filter(i => i.slug === 'toprated');
       //Math the list to be able to random the results of list
-      let randomBanner = Math.floor(Math.random() * (bannerTrending[0].items.results.length - 1));
+      let randomBanner = Math.floor(Math.random() * (bannerToprated[0].items.results.length - 1));
       // catch the specificly movie 
-      let catchBanner = bannerTrending[0].items.results[randomBanner];
+      let catchBanner = bannerToprated[0].items.results[randomBanner];
       //match the link of list and the link with more informations about the movie 
       let randomInformation = await apiConfig.getMovieForId(catchBanner.id);
       // change the state of hero banner 
