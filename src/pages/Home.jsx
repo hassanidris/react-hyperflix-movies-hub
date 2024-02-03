@@ -27,17 +27,6 @@ export default function Home() {
       let randomInformation = await apiConfig.getMovieForId(catchBanner.id);
       // change the state of hero banner 
       setMovieBanner(randomInformation[0].info);
-
-     /* console.log({
-        list,
-        results: bannerTrending[0].items.results,
-        bannerTrending,
-        randomBanner,
-        catchBanner,
-        randomInformation
-      })
-    */
-
     }
     loadAll();
   }, [])
