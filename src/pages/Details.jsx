@@ -80,17 +80,17 @@ export default function Details() {
           </div>
           <div> 
             <p>Production: </p>
-          {
-              movieDetails?.credits?.crew.map((crew)=>{
-                return(
-                  <Cast
-                    key={crew.id}
-                    name={crew.name} 
-                    character={crew.character} 
-                    image={crew.profile_path}/>
-                )
-              })
-            }
+            {
+                movieDetails?.credits?.crew.map((crew)=>{
+                  return(
+                    <Cast
+                      key={crew.id}
+                      name={crew.name} 
+                      character={crew.character} 
+                      image={crew.profile_path}/>
+                  )
+                })
+              }
           </div>
         </div>
       </div>
