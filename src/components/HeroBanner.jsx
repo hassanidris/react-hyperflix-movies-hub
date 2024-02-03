@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import BtnDetails from "./BtnDetails";
-import Trailer from "./Trailer";
+//import Trailer from "./Trailer";
 import Loading from "./Loading";
+import BtnTrailer from "./BtnTrailer";
 
 const HeroBanner = ({itemBanner}) => {
 
@@ -9,6 +10,9 @@ const HeroBanner = ({itemBanner}) => {
 
   const navigateToMovie = (movieId) => {
     navigate(`/movie/${movieId}`)
+  }
+  const navigateToTrailer = (trailerId) => {
+    navigate(`/trailer/${trailerId}`)
   }
 
   let releaseYear = new Date(itemBanner.release_date);
@@ -19,7 +23,7 @@ const HeroBanner = ({itemBanner}) => {
     }
 
 
-  console.log(itemBanner)
+  //console.log(itemBanner)
   // flex items-end bg-gray-800 text-white h-[80vh] pt-20
   return itemBanner ? (
     <div className="w-full h-[80vh] text-white font-open_sans relative">
@@ -55,7 +59,7 @@ const HeroBanner = ({itemBanner}) => {
               <p className="w-full lg:w-2/3">{itemBanner.overview}</p>
             </div>
             <div className=" flex mt-4 gap-3">
-              <Trailer>aqui</Trailer>
+              <BtnTrailer onClick={() => navigateToTrailer(itemBanner.id)} />
               <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />
             </div>
           </div>

@@ -4,10 +4,8 @@ import { useEffect, useState } from 'react';
 import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
 
-
 export default function Details() {
   let { id } = useParams();
-  //console.log(id)
 
   const [movieDetails, setMovieDetails] = useState({});
 
@@ -21,7 +19,7 @@ export default function Details() {
     loadDetails();
   }, [id])
 
-  console.log(movieDetails)
+  //console.log(movieDetails)
 
   let releaseYear = new Date(movieDetails.release_date);
 
@@ -54,9 +52,7 @@ export default function Details() {
               <div> popularity: {movieDetails.popularity}</div>
               <p>{movieDetails.overview}</p>
             </div>
-            <div>
-              <Trailer/>
-            </div>
+            <div>Trailer</div>
           </div>
         </div>
         <div>

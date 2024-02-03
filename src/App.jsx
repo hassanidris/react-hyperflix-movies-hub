@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
+import Trailer from "./components/Trailer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/movie/:id" element={ <Details /> } />
+          <Route path="/trailer/:id" element={ <Trailer/> } />
         </Routes>        
       </div>
 

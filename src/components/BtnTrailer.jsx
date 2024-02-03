@@ -1,9 +1,7 @@
-const Trailer = () => {
+const BtnTrailer = ({onClick}) => {
   return(
-    <button className="btn">
-      Watch Trailer
-    </button>
+    <button style={{backgroundColor: 'white', color:'black'}} onClick={onClick}>Trailer</button>
   )
 }
 
-export default Trailer;
+export default BtnTrailer;
