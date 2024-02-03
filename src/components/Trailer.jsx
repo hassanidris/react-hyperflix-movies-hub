@@ -20,7 +20,7 @@ const Trailer = ({videoKey}) => {
         onRequestClose={closeModal}
         contentLabel="Trailer"
       >
-        <div style={{color: 'red', marginTop: 200 }}>
+        <div>
           <div>
             <iframe src={`https://www.youtube.com/embed/${videoKey}`}></iframe>
           </div>
