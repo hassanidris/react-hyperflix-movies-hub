@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import apiConfig from '../data/apiConfig';
 import { useEffect, useState } from 'react';
-import Trailer from '../components/Trailer';
+//import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
 
 export default function Details() {
@@ -14,6 +14,7 @@ export default function Details() {
 
       let movie = await apiConfig.getMovieForId(id);
       setMovieDetails(movie[0].info)
+      console.log(movie)
 
     }
     loadDetails();

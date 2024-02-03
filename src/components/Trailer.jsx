@@ -1,22 +1,27 @@
-import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const Modal = ({ isOpen, onClose }) => {
-  if (!isOpen) {
-    return null; // Don't render anything if the modal is closed
-  }
-
-  return (
-    <div className="modal">
-      <div className="modal-content">
-        <h2>Modal Title</h2>
-        <p>Modal content goes here...</p>
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>
-  );
-};
+import apiConfig from '../data/apiConfig';
+import Modal from './Modal';
 
 const Trailer = () => {
+  let { id } = useParams();
+
+  const [ movieTrailer, setMovieTrailer] = useState({
+    results: []
+  });
+
+  useEffect(() => {
+    const loadTrailer = async () => {
+      let trailer = await apiConfig.getTrailerForId(id);
+      setMovieTrailer(trailer[0].info)
+      console.log(trailer)
+    }
+    loadTrailer();
+  }, [id])
+
+  console.log(movieTrailer)
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -27,10 +32,25 @@ const Trailer = () => {
     setIsModalOpen(false);
   };
 
+
   return (
-    <div>
-      <button onClick={handleOpenModal}>Open Modal</button>
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
+    <div style={{color: 'red', marginTop:200 }}>
+      {
+        movieTrailer.results.map((trailers)=>{
+          return(
+            <div key={trailers.id}>
+              <p>{trailers.name}</p>
+              <iframe 
+                src={`https://www.youtube.com/embed/${trailers.key}`}>
+              </iframe>
+            </div> 
+          )
+        })
+      }
+      <div>
+        <button onClick={handleOpenModal}>Open Modal</button>
+        <Modal isOpen={isModalOpen} onClose={handleCloseModal} />
+      </div>
     </div>
   );
 }

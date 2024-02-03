@@ -6,7 +6,7 @@ import {FaHeart, FaRegHeart } from 'react-icons/fa';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Movies = ({title, items}) => {
-   const [like, setLike] = useState(false);
+  const [like, setLike] = useState(false);
   const [sliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
   //console.log(items)
   const navigate = useNavigate();
