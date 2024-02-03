@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import BtnDetails from "./BtnDetails";
-//import Trailer from "./Trailer";
 import Loading from "./Loading";
-//import BtnTrailer from "./BtnTrailer";
 import Trailer from "./Trailer";
 
 const HeroBanner = ({itemBanner}) => {
