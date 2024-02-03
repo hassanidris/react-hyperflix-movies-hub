@@ -67,34 +67,33 @@ export default function Details() {
           <div> Revenue: {movieDetails.revenue}</div>
         </div>
         <div>
-        <div>
-          <p>Cast:</p>
+          <div>
+            <p>Cast:</p>
+            {
+              movieDetails?.credits?.cast.map((actor)=>{
+                return(
+                  <Cast
+                    key={actor.id}
+                    name={actor.name} 
+                    character={actor.character} 
+                    image={actor.profile_path}/>
+                )
+              })
+            }
+          </div>
+          <div> Production: 
           {
-            movieDetails?.credits?.cast.map((actor)=>{
-              return(
-                <Cast
-                  key={actor.id}
-                  name={actor.name} 
-                  character={actor.character} 
-                  image={actor.profile_path}/>
-              )
-            })
-          }
-        </div>
-        <div> Production: 
-        {
-            movieDetails?.credits?.crew.map((crew)=>{
-              return(
-                <Cast
-                  key={crew.id}
-                  name={crew.name} 
-                  character={crew.character} 
-                  image={crew.profile_path}/>
-              )
-            })
-          }
-          <div></div>
-        </div>
+              movieDetails?.credits?.crew.map((crew)=>{
+                return(
+                  <Cast
+                    key={crew.id}
+                    name={crew.name} 
+                    character={crew.character} 
+                    image={crew.profile_path}/>
+                )
+              })
+            }
+          </div>
         </div>
       </div>
     </div>

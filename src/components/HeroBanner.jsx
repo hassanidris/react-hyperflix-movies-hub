@@ -55,7 +55,7 @@ const HeroBanner = ({itemBanner}) => {
               <p className="w-full lg:w-2/3">{itemBanner.overview}</p>
             </div>
             <div className=" flex mt-4 gap-3">
-              <Trailer />
+              <Trailer>aqui</Trailer>
               <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />
             </div>
           </div>
