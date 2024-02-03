@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Modal from 'react-modal';
 
-
 const Trailer = ({videoKey}) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -26,7 +25,6 @@ const Trailer = ({videoKey}) => {
             <iframe src={`https://www.youtube.com/embed/${videoKey}`}></iframe>
           </div>
         </div>
-       
       </Modal>
     </div>
   ): null

@@ -44,7 +44,7 @@ const HeroBanner = ({itemBanner}) => {
           </div>
           <div className="text-m_white font-open_sans font-medium">
             <div>
-              <Trailer videoKey={itemBanner?.videos?.results?.[0]?.key} />
+              
               <h2 className="text-m_white font-amaranth text-5xl">
                 {itemBanner.title}
               </h2>
@@ -55,7 +55,8 @@ const HeroBanner = ({itemBanner}) => {
               <p className="w-full lg:w-2/3">{itemBanner.overview}</p>
             </div>
             <div className=" flex mt-4 gap-3">
-              <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />             
+              <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />  
+              <Trailer videoKey={itemBanner?.videos?.results?.[0]?.key} />           
             </div>
           </div>
 
