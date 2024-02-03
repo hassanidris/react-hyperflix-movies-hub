@@ -1,20 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import BtnDetails from "./BtnDetails";
 import Trailer from "./Trailer";
+import Loading from "./Loading";
 
 const HeroBanner = ({itemBanner}) => {
-
 
   const navigate = useNavigate();
 
   const navigateToMovie = (movieId) => {
     navigate(`/movie/${movieId}`)
   }
-
-  //const originalImg = 'https://image.tmdb.org/t/p/original';
-
-
- 
 
   let releaseYear = new Date(itemBanner.release_date);
 
@@ -26,7 +21,7 @@ const HeroBanner = ({itemBanner}) => {
 
   console.log(itemBanner)
   // flex items-end bg-gray-800 text-white h-[80vh] pt-20
-  return (
+  return itemBanner ? (
     <div className="w-full h-[80vh] text-white font-open_sans relative">
       <div
         className="h-full w-full flex items-end"
@@ -68,7 +63,8 @@ const HeroBanner = ({itemBanner}) => {
         </div>
       </div>
     </div>
-  );
+  ) : 
+  (<Loading/>)
 };
 
 export default HeroBanner;

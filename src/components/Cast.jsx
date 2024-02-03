@@ -1,4 +1,3 @@
-
 const Cast = ({ name, character, image }) => {
   return (
     <div>

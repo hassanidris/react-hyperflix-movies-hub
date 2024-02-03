@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [movieList, setMovieList] = useState([]);
-  const [movieBanner, setMovieBanner] = useState([null]);
+  const [movieBanner, setMovieBanner] = useState(null);
 
   useEffect(() => {
     const loadAll = async () => {
