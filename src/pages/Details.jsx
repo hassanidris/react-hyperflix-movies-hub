@@ -80,7 +80,7 @@ export default function Details() {
           </div>
           <div> 
             <p>Production: </p>
-            {
+              {
                 movieDetails?.credits?.crew.map((crew)=>{
                   return(
                     <Cast
