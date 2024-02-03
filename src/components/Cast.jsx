@@ -1,5 +1,4 @@
-
-export default function Cast({ name, character, image }) {
+const Cast = ({ name, character, image }) => {
   return (
     <div>
       <div>{name}</div>
@@ -8,3 +7,5 @@ export default function Cast({ name, character, image }) {
     </div>
   )
 }
+
+export default Cast;

@@ -1,32 +1,26 @@
 import { useNavigate } from "react-router-dom";
 import BtnDetails from "./BtnDetails";
+import Loading from "./Loading";
 import Trailer from "./Trailer";
 
 const HeroBanner = ({itemBanner}) => {
-
-
   const navigate = useNavigate();
 
   const navigateToMovie = (movieId) => {
     navigate(`/movie/${movieId}`)
   }
 
-  //const originalImg = 'https://image.tmdb.org/t/p/original';
-
-
- 
-
   let releaseYear = new Date(itemBanner.release_date);
 
   let genres = [];
-    for(let i in itemBanner.genres) {
-        genres.push( itemBanner.genres[i].name );
-    }
-
+  for(let i in itemBanner.genres) {
+      genres.push( itemBanner.genres[i].name );
+  }
 
   console.log(itemBanner)
+
   // flex items-end bg-gray-800 text-white h-[80vh] pt-20
-  return (
+  return itemBanner ? (
     <div className="w-full h-[80vh] text-white font-open_sans relative">
       <div
         className="h-full w-full flex items-end"
@@ -50,6 +44,7 @@ const HeroBanner = ({itemBanner}) => {
           </div>
           <div className="text-m_white font-open_sans font-medium">
             <div>
+              
               <h2 className="text-m_white font-amaranth text-5xl">
                 {itemBanner.title}
               </h2>
@@ -60,15 +55,16 @@ const HeroBanner = ({itemBanner}) => {
               <p className="w-full lg:w-2/3">{itemBanner.overview}</p>
             </div>
             <div className=" flex mt-4 gap-3">
-              <Trailer />
-              <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />
+              <BtnDetails onClick={() => navigateToMovie(itemBanner.id)} />  
+              <Trailer videoKey={itemBanner?.videos?.results?.[0]?.key} />           
             </div>
           </div>
 
         </div>
       </div>
     </div>
-  );
+  ) : 
+  (<Loading/>)
 };
 
 export default HeroBanner;

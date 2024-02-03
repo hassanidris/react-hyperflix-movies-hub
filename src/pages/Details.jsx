@@ -4,10 +4,8 @@ import { useEffect, useState } from 'react';
 import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
 
-
 export default function Details() {
   let { id } = useParams();
-  //console.log(id)
 
   const [movieDetails, setMovieDetails] = useState({});
 
@@ -16,12 +14,13 @@ export default function Details() {
 
       let movie = await apiConfig.getMovieForId(id);
       setMovieDetails(movie[0].info)
+      console.log(movie)
 
     }
     loadDetails();
   }, [id])
 
-  console.log(movieDetails)
+  //console.log(movieDetails)
 
   let releaseYear = new Date(movieDetails.release_date);
 
@@ -54,9 +53,7 @@ export default function Details() {
               <div> popularity: {movieDetails.popularity}</div>
               <p>{movieDetails.overview}</p>
             </div>
-            <div>
-              <Trailer/>
-            </div>
+            <div><Trailer videoKey={movieDetails?.videos?.results?.[0]?.key} /></div>
           </div>
         </div>
         <div>
@@ -67,34 +64,33 @@ export default function Details() {
           <div> Revenue: {movieDetails.revenue}</div>
         </div>
         <div>
-        <div>
-          <p>Cast:</p>
+          <div>
+            <p>Cast:</p>
+            {
+              movieDetails?.credits?.cast.map((actor)=>{
+                return(
+                  <Cast
+                    key={actor.id}
+                    name={actor.name} 
+                    character={actor.character} 
+                    image={actor.profile_path}/>
+                )
+              })
+            }
+          </div>
+          <div> Production: 
           {
-            movieDetails?.credits?.cast.map((actor)=>{
-              return(
-                <Cast
-                  key={actor.id}
-                  name={actor.name} 
-                  character={actor.character} 
-                  image={actor.profile_path}/>
-              )
-            })
-          }
-        </div>
-        <div> Production: 
-        {
-            movieDetails?.credits?.crew.map((crew)=>{
-              return(
-                <Cast
-                  key={crew.id}
-                  name={crew.name} 
-                  character={crew.character} 
-                  image={crew.profile_path}/>
-              )
-            })
-          }
-          <div></div>
-        </div>
+              movieDetails?.credits?.crew.map((crew)=>{
+                return(
+                  <Cast
+                    key={crew.id}
+                    name={crew.name} 
+                    character={crew.character} 
+                    image={crew.profile_path}/>
+                )
+              })
+            }
+          </div>
         </div>
       </div>
     </div>

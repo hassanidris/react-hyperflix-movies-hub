@@ -5,10 +5,10 @@ import BtnDetails from "./BtnDetails";
 import {FaHeart, FaRegHeart } from 'react-icons/fa';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 
-const Movies = ({title, items, key}) => {
-   const [like, setLike] = useState(false);
+const Movies = ({title, items}) => {
+  const [like, setLike] = useState(false);
   const [sliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
-  console.log(items)
+  //console.log(items)
   const navigate = useNavigate();
 
   const navigateToMovie = (movieId) => {
