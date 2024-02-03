@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import apiConfig from '../data/apiConfig';
 import { useEffect, useState } from 'react';
-//import Trailer from '../components/Trailer';
+import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
 
 export default function Details() {
@@ -53,7 +53,7 @@ export default function Details() {
               <div> popularity: {movieDetails.popularity}</div>
               <p>{movieDetails.overview}</p>
             </div>
-            <div>Trailer</div>
+            <div><Trailer videoKey={movieDetails?.videos?.results?.[0]?.key} /></div>
           </div>
         </div>
         <div>
