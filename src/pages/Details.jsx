@@ -27,7 +27,7 @@ export default function Details() {
     const loadDetails = async () => {
 
       let movie = await apiConfig.getMovieForId(id);
-      setMovieDetails(movie[0].info)
+      setMovieDetails(movie)
       console.log(movie)
 
     }
@@ -148,18 +148,19 @@ export default function Details() {
 
       </div>
           </div>
-          <div> Production: 
-          {
-              movieDetails?.credits?.crew.map((crew)=>{
-                return(
-                  <Cast
-                    key={crew.id}
-                    name={crew.name} 
-                    character={crew.character} 
-                    image={crew.profile_path}/>
-                )
-              })
-            }
+          <div> 
+            <p>Production: </p>
+              {
+                movieDetails?.credits?.crew.map((crew)=>{
+                  return(
+                    <Cast
+                      key={crew.id}
+                      name={crew.name} 
+                      character={crew.character} 
+                      image={crew.profile_path}/>
+                  )
+                })
+              }
           </div>
         </div>
       </div>
