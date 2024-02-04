@@ -10,7 +10,7 @@ function App() {
     <div>
       <BrowserRouter>
       <Navbar/>
-      <div style={{ color: 'white', background: 'black'}}>
+      <div style={{ color: 'white'}}>
         <Routes /*location={previousLocation || location}*/>
           <Route path="/" element={ <Home /> } />
           <Route path="/movie/:id" element={ <Details /> } />
