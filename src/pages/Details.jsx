@@ -16,7 +16,7 @@ export default function Details() {
     const loadDetails = async () => {
 
       let movie = await apiConfig.getMovieForId(id);
-      setMovieDetails(movie[0].info)
+      setMovieDetails(movie)
       console.log(movie)
 
     }

@@ -48,21 +48,15 @@ export default {
     ];
   },
   getMovieForId: async (movieId) => {
-    return [
-      {
-        // example path https://api.themoviedb.org/3/movie/550?api_key=60d07ebef5dc7eac7a2c1943ca443902&language=en-US&append_to_response=credits
-        info: await basicFetch(
-          `/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,videos`
-        ),
-      },
-    ];
+    // example path https://api.themoviedb.org/3/movie/550?api_key=60d07ebef5dc7eac7a2c1943ca443902&language=en-US&append_to_response=credits
+    const info =  await basicFetch(
+      `/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,videos`
+    )
+    return info;
   },
   getSearchMovie: async (searchText) => {
-    return [
-      {
-        // example path https://api.themoviedb.org/3/search/movie?api_key=d3449ff6ec0c027623bf6b6f5fff78b3&language=en-US&query=salt&page=1&include_adult=false
-        info: await basicFetch(`/movie?api_key=${apiKey}&language=en-US&query=${searchText}&page=1&include_adult=false`)
-      },
-    ];
+    const data = await basicFetch(`search/movie?api_key=${apiKey}&language=en-US&query=${searchText}&page=1&include_adult=false`);
+
+    return data;
   },
 };
