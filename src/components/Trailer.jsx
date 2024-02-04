@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaPlay } from "react-icons/fa";
 import Modal from 'react-modal';
 
 const Trailer = ({videoKey}) => {
@@ -14,7 +15,7 @@ const Trailer = ({videoKey}) => {
 
   return videoKey ? (
     <div>
-      <button onClick={openModal}>See trailer</button>
+      <button className="btn-outline flex justify-center items-center gap-1" onClick={openModal}><FaPlay /> See trailer</button>
       <Modal 
         style={{
           overlay: {

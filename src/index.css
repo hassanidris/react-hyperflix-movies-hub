@@ -9,6 +9,14 @@
         @apply bg-m_black h-screen font-open_sans
     }
 
+    h1 {
+        @apply text-m_white font-amaranth font-bold text-5xl
+    }
+
+    h2 {
+        @apply font-amaranth text-m_white font-bold md:text-3xl
+    }
+
     .btn {
         @apply text-m_white bg-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-base
 
