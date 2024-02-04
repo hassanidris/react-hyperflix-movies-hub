@@ -29,7 +29,7 @@ const Movies = ({title, items}) => {
   return(
 
     <div className=' px-8'>
-      <h2 className=" font-amaranth text-m_white font-bold md:text-3xl p-4 mt-10">{title}</h2>
+      <h2 className="p-4 mt-10">{title}</h2>
       <div className=" relative flex items-center group">
         <IoIosArrowDropleftCircle onClick={slideLeft} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
         <div id={sliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative'>

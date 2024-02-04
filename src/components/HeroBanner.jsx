@@ -34,7 +34,7 @@ const HeroBanner = ({itemBanner}) => {
         {/* Dark overlay */}
         {/* <div className="bg-black opacity-50 z-10"></div> */}
 
-        <div className="w-full h-full flex flex-col justify-center md:flex-row items-start sm:items-end p-10 gap-5 bg-m_black/80">
+        <div className="w-full h-full flex flex-col justify-center md:flex-row items-start md:items-end p-10 gap-5 bg-m_black/80">
           <div className="w-[150px] md:w-[300px] h-auto">
             <img
               className="w-full h-full object-cover"
@@ -45,9 +45,9 @@ const HeroBanner = ({itemBanner}) => {
           <div className="text-m_white font-open_sans font-medium">
             <div>
               
-              <h2 className="text-m_white font-amaranth text-5xl">
+              <h1>
                 {itemBanner.title}
-              </h2>
+              </h1>
               <p className="font-open_sans text-m_white italic text-sm mb-3">
                 <span>{releaseYear.getFullYear()}</span> .
                 <span> {genres.join(', ')}</span>
