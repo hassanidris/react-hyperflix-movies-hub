@@ -78,89 +78,96 @@ export default function Details() {
         <div className=" flex items-end bg-gray-800 text-white h-[80vh]" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${movieDetails.backdrop_path})`, backgroundSize: 'cover'}}>
           <div className='w-full h-full flex flex-col justify-start md:flex-row items-start md:items-end p-5 sm:p-10 gap-5 bg-m_black/80'>
             <div className='w-[30%] md:w-[300px] h-auto'><img className=' block w-full h-full object-cover' src={`https://image.tmdb.org/t/p/w200${movieDetails.poster_path}`} alt={movieDetails.title}/></div>
-            <div className=' flex flex-col sm:flex-row items-end gap-4 w-full sm:w-[80%] justify-between'>
-              <div className='w-full sm:w-[55%]'>
-                <h1 className=''>{movieDetails.title}<span className=' font-thin'> ({releaseYear.getFullYear()})</span></h1>
-                <p className=' flex items-center gap-1 text-sm mb-3'>{`${formatDate(movieDetails.release_date)}`} <TbPointFilled /> {genres.join(', ')} <TbPointFilled /> {` ${formatRuntime(movieDetails.runtime)}`}</p>
-              
-                {/* <div> popularity: {movieDetails.popularity}</div> */}
-                <div className=' my-4'>
-                  <h3 className=' text-xl font-bold'>Overview</h3>
-                  <p className=' text-sm sm:text-md'>{movieDetails.overview}</p>
-                  <div>
-                    <p>{movieDetails?.credits?.crew.some(crewMember => crewMember.known_for_department === 'Writing') ? `Written by ${productionName.join(', ')}` : 'Hi'}</p>
-                  </div>
-                </div>
-               <div><Trailer videoKey={movieDetails?.videos?.results?.[0]?.key} /></div>
-              </div>
-              <div className=' rounded-md border-[1px] border-m_gold bg-m_black/80 p-3 sm:p-6 flex flex-row sm:flex-col justify-between gap-3 w-full sm:w-[25%]'>
-                <div>
-                  <div>
-                    <h4 className='text-sm sm:text-base font-bold'>Status:</h4>
-                    <p className=' text-sm mb-2 sm:mb-0'>{movieDetails.status}</p>
-                  </div>
-                  <div>
-                    <h4 className='text-sm sm:text-base font-bold'>Original Language:</h4>
-                    <p className=' text-sm'>{movieDetails.original_language}</p>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <h4 className='text-sm sm:text-base font-bold'>Budget:</h4>
-                    <p className=' text-sm mb-2 sm:mb-0'>{movieDetails.budget}</p>
-                  </div>
-                  <div>
-                    <h4 className='text-sm sm:text-base font-bold'>Revenue:</h4>
-                    <p className=' text-sm'>{movieDetails.revenue}</p>
-                  </div>
-                </div>
-                <div>
-                  <h4 className='text-sm sm:text-base font-bold'>Useful Links:</h4>
-                  <div className=' flex gap-4 mt-3'>
-                    <a href={`https://www.imdb.com/title/${movieDetails.imdb_id}/`} target="_blank" rel="noopener noreferrer"><FaImdb size={35} /></a>
-                    <a href={movieDetails.homepage} target="_blank" rel="noopener noreferrer"><FaGlobe size={35} /></a>
-                  </div>
-                </div>
+              <div className=' flex flex-col sm:flex-row items-end gap-4 w-full sm:w-[80%] justify-between'>
+                <div className='w-full sm:w-[55%]'>
+                  <h1 className=''>{movieDetails.title}<span className=' font-thin'> ({releaseYear.getFullYear()})</span></h1>
+                  <p className=' flex items-center gap-1 text-sm mb-3'>{`${formatDate(movieDetails.release_date)}`} <TbPointFilled /> {genres.join(', ')} <TbPointFilled /> {` ${formatRuntime(movieDetails.runtime)}`}</p>
                 
+                  {/* <div> popularity: {movieDetails.popularity}</div> */}
+                  <div className=' my-4'>
+                    <h3 className=' text-xl font-bold'>Overview</h3>
+                    <p className=' text-sm sm:text-md'>{movieDetails.overview}</p>
+                    {/* <p>{crew.job}</p> */}
+                  </div>
+                <div><Trailer videoKey={movieDetails?.videos?.results?.[0]?.key} /></div>
+                </div>
+                <div className=' rounded-md border-[1px] border-m_gold bg-m_black/80 p-3 sm:p-6 flex flex-row sm:flex-col justify-between gap-3 w-full sm:w-[25%]'>
+                  <div>
+                    <div>
+                      <h4 className='text-sm sm:text-base font-bold'>Status:</h4>
+                      <p className=' text-sm mb-2 sm:mb-0'>{movieDetails.status}</p>
+                    </div>
+                    <div>
+                      <h4 className='text-sm sm:text-base font-bold'>Original Language:</h4>
+                      <p className=' text-sm'>{movieDetails.original_language}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <div>
+                      <h4 className='text-sm sm:text-base font-bold'>Budget:</h4>
+                      <p className=' text-sm mb-2 sm:mb-0'>{movieDetails.budget}</p>
+                    </div>
+                    <div>
+                      <h4 className='text-sm sm:text-base font-bold'>Revenue:</h4>
+                      <p className=' text-sm'>{movieDetails.revenue}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className='text-sm sm:text-base font-bold'>Useful Links:</h4>
+                    <div className=' flex gap-4 mt-3'>
+                      <a href={`https://www.imdb.com/title/${movieDetails.imdb_id}/`} target="_blank" rel="noopener noreferrer"><FaImdb size={35} /></a>
+                      <a href={movieDetails.homepage} target="_blank" rel="noopener noreferrer"><FaGlobe size={35} /></a>
+                    </div>
+                  </div>
+                  
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+         </div>
         
         <div>
           <div className=' p-8'>
-            <h2 className=' mb-2'>Cast:</h2>
-            <div className=" relative flex items-center group">
-        <IoIosArrowDropleftCircle onClick={slideLeft} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
-        <div id={sliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
-            {movieDetails?.credits?.cast.map((actor) => {
-                return(
-                  <Cast
-                    key={actor.id}
-                    name={actor.name} 
-                    character={actor.character} 
-                    image={actor.profile_path}/>
-                )
-              })
-            }
-            </div>
-            <IoIosArrowDroprightCircle onClick={slideRight} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+              <h2 className=' mb-2'>Cast:</h2>
+              <div className=" relative flex items-center group">
+          <IoIosArrowDropleftCircle onClick={slideLeft} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+          <div id={sliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
+              {movieDetails?.credits?.cast.map((actor) => {
+                  return(
+                    <Cast
+                      key={actor.id}
+                      name={actor.name} 
+                      character={actor.character} 
+                      image={actor.profile_path}/>
+                  )
+                })
+              }
+              </div>
+              <IoIosArrowDroprightCircle onClick={slideRight} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
 
-      </div>
+            </div>
           </div>
-          <div> 
-            <p>Production: </p>
+          <div className=' p-8'> 
+            <h2 className=' mb-2'>Production Crew:</h2>
+            <div className=" relative flex items-center group">
+          <IoIosArrowDropleftCircle onClick={slideLeft} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+          <div id={sliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
+
               {
                 movieDetails?.credits?.crew.map((crew)=>{
                   return(
                     <Cast
                       key={crew.id}
                       name={crew.name} 
-                      character={crew.character} 
+                      job={crew.job} 
                       image={crew.profile_path}/>
                   )
                 })
               }
+              </div>
+              <IoIosArrowDroprightCircle onClick={slideRight} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+
+            </div>
+
           </div>
         </div>
       </div>
