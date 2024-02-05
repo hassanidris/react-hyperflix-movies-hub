@@ -7,6 +7,7 @@ import { FaGlobe, FaImdb } from "react-icons/fa";
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
+import Reviews from '../components/Reviews';
 
 export default function Details(props) {
   let { id } = useParams();
@@ -81,7 +82,7 @@ for (let i in movieDetails?.credits?.crew) {
   } else {
     crewMap[name].push({ title, image });
   }
-  console.log(image)
+  // console.log(image)
 }
 
 // Create an array of objects with name, titles, and image
@@ -92,6 +93,7 @@ const crewInfoArray = Object.entries(crewMap).map(([name, roles]) => ({
 }));
 
 console.log(crewInfoArray);
+console.log(movieDetails.reviews.results[1])
 
   return (
 
@@ -190,6 +192,20 @@ console.log(crewInfoArray);
 
             </div>
 
+          </div>
+          <div>
+          {
+                movieDetails?.reviews?.results.map((review)=>{
+                  return(
+                    <Reviews
+                      key={review.id}
+                      author={review.author} 
+                      content={review.content} 
+                      date={review.updated_at}
+                      image={review.author_details.avatar_path}/>
+                  )
+                })
+              }
           </div>
         </div>
       </div>
