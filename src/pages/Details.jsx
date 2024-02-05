@@ -7,7 +7,7 @@ import { FaGlobe, FaImdb } from "react-icons/fa";
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
-//import Reviews from '../components/Reviews';
+import Reviews from '../components/Reviews';
 
 export default function Details() {
   let { id } = useParams();
@@ -91,9 +91,6 @@ const crewInfoArray = Object.entries(crewMap).map(([name, roles]) => ({
   titles: roles.map(role => role.title).join(', '),
   image: roles[0].image, // Assuming the crew member has the same image for all roles
 }));
-
-console.log(crewInfoArray);
-console.log(movieDetails?.review?.results)
 
   return (
 
@@ -193,15 +190,20 @@ console.log(movieDetails?.review?.results)
             </div>
 
           </div>
-          <div>
-          {
-                movieDetails?.reviews?.results.map((review)=>{
-                  return(
-                    <p key={review}>author={review.author}</p>
-                      
-                  )
-                })
-              }
+          <div className=' p-8' style={{ overflowX: 'hidden' }}> 
+            <h2 className=' mb-2'>Reviews:</h2>
+            {
+              movieDetails?.reviews?.results && movieDetails.reviews.results.map((review) => (
+                <Reviews
+                  key={review.id}
+                  author={review.author} 
+                  content={review.content} 
+                  date={review.updated_at}
+                  image={review.author_details.avatar_path}
+                />
+              ))
+            }
+
           </div>
         </div>
       </div>
