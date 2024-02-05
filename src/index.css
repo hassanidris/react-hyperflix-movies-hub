@@ -10,7 +10,7 @@
     }
 
     h1 {
-        @apply text-m_white font-amaranth font-bold text-2xl sm:text-5xl
+        @apply text-m_white font-amaranth font-bold text-2xl sm:text-4xl
     }
 
     h2 {
@@ -18,7 +18,7 @@
     }
 
     .btn {
-        @apply text-m_white bg-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-base
+        @apply text-m_white bg-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-sm
 
     }
     .btn:hover {
@@ -26,7 +26,7 @@
     }
 
     .btn-outline {
-        @apply text-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-base
+        @apply text-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-sm
 
     }
     .btn-outline:hover {
@@ -34,7 +34,7 @@
     }
 
     .btn-outline-sm {
-        @apply text-m_gold border-[1px] border-m_gold py-0.5 px-3.5 cursor-pointer text-base
+        @apply text-m_gold border-[1px] border-m_gold py-0.5 px-3 cursor-pointer text-xs
 
     }
     .btn-outline-sm:hover {

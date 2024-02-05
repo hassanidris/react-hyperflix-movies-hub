@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 //styles
 const classNameLabel = "mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white";
 const classNameWrapped = "absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none";
-const classNameInput = "block w-[50vw] p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-m_gold focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+const classNameInput = "block w-[50vw] p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-m_gold focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
 
 
 
@@ -22,23 +22,23 @@ const SearchField = () => {
   const [query, setQuery] = useState('');
   const [resultsQuery, setResultsQuery] = useState([]);
 
-    useEffect(() => {
-      const searchMovies = async () => {
-        try {
-          let data = await apiConfig.getSearchMovie(query);
-          setResultsQuery(data.results)
-          console.log(data)
-        } catch (error) {
-          console.error('Error fetching data:', error);
-        }
-      };
-
-      if (query.trim() !== '') {
-        searchMovies();
-      } else {
-        setResultsQuery([]);
+  useEffect(() => {
+    const searchMovies = async () => {
+      try {
+        let data = await apiConfig.getSearchMovie(query);
+        setResultsQuery(data.results)
+        console.log(data)
+      } catch (error) {
+        console.error('Error fetching data:', error);
       }
-    }, [query]);
+    };
+
+    if (query.trim() !== '') {
+      searchMovies();
+    } else {
+      setResultsQuery([]);
+    }
+  }, [query]);
 
   return(
     <form>   

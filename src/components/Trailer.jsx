@@ -42,7 +42,8 @@ const Trailer = ({videoKey}) => {
         }}
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel="Trailer" shouldCloseOnEsc='true'
+        contentLabel="Trailer" 
+        shouldCloseOnEsc={true}
       >
         <div>
           <div>
