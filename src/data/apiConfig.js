@@ -49,13 +49,15 @@ export default {
   },
   getMovieForId: async (movieId) => {
     // example path https://api.themoviedb.org/3/movie/550?api_key=60d07ebef5dc7eac7a2c1943ca443902&language=en-US&append_to_response=credits
-    const info =  await basicFetch(
-      `/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,videos`
-    )
+    const info = await basicFetch(
+      `/movie/${movieId}?api_key=${apiKey}&language=en-US&append_to_response=credits,videos,reviews,similar`
+    );
     return info;
   },
   getSearchMovie: async (searchText) => {
-    const data = await basicFetch(`search/movie?api_key=${apiKey}&language=en-US&query=${searchText}&page=1&include_adult=false`);
+    const data = await basicFetch(
+      `search/movie?api_key=${apiKey}&language=en-US&query=${searchText}&page=1&include_adult=false`
+    );
 
     return data;
   },

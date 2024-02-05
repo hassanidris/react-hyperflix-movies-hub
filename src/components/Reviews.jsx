@@ -1,6 +1,6 @@
 import defultImage from '../assets/default-user.png'
 
-const Cast = ({ name, character, image, job }) => {
+const Reviews = ({ author, content, image, date }) => {
 // console.log(defultImage);
   
 
@@ -15,10 +15,10 @@ const Cast = ({ name, character, image, job }) => {
           
               
                 <div className='flex flex-col gap-1 h-full'>
-                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm font-bold ">{name}</p>
-                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{character}</p>
+                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm font-bold ">{author}</p>
+                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{content}</p>
                 
-                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{job}</p>
+                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{date}</p>
                 
               </div>
               
@@ -27,4 +27,4 @@ const Cast = ({ name, character, image, job }) => {
   )
 }
 
-export default Cast;
+export default Reviews;

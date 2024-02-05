@@ -7,6 +7,7 @@ import { FaGlobe, FaImdb } from "react-icons/fa";
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
+import Reviews from '../components/Reviews';
 
 export default function Details(props) {
   let { id } = useParams();
@@ -15,16 +16,15 @@ export default function Details(props) {
   const [movieDetails, setMovieDetails] = useState({});
 
   
-  // const [castSliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
-  // const [crewSliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
-  const [sliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
+  const [castSliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
+  const [crewSliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
 
-  const slideLeft = () => {
+  const slideLeft = (sliderId) => {
     let slider = document.getElementById(sliderId);
     slider.scrollLeft = Math.max(slider.scrollLeft - 500);
   }
 
-  const slideRight = () => {
+  const slideRight = (sliderId) => {
     let slider = document.getElementById(sliderId);
     slider.scrollLeft = Math.max(slider.scrollLeft + 500);
   }
@@ -40,24 +40,7 @@ export default function Details(props) {
     loadDetails();
   }, [id])
 
-  //console.log(movieDetails)
-
-  // format duration to 0h 0m format
-  // const formatRuntime = (minutes) => {
-  //   const hours = Math.floor(minutes / 60);
-  //   const remainingMinutes = minutes % 60;
   
-  //   return `${hours}h ${remainingMinutes}m`;
-  // };
-
-  // const formatDate = (tmdbDate) => {
-  //   const dateObject = new Date(tmdbDate);
-  //   const day = dateObject.getDate();
-  //   const month = dateObject.getMonth() + 1; // Months are zero-based
-  //   const year = dateObject.getFullYear();
-  
-  //   return `${day}/${month}/${year}`;
-  // };
 
   let releaseYear = new Date(movieDetails.release_date);
 
@@ -65,6 +48,13 @@ export default function Details(props) {
     style: 'currency',
     currency: 'USD',
   });
+
+  // const getLanguageName = (code) => {
+  //   const languageNames = new Intl.DisplayNames(['en'], { type: 'language' });
+  //   return languageNames.of(code);
+  // };
+
+  const getL = (c) => new Intl.DisplayNames(['en'], {type: 'language'}).of(c);
 
   let genres = [];
     for(let i in movieDetails.genres) {
@@ -78,12 +68,6 @@ export default function Details(props) {
     productionName.push( movieDetails.credits.crew[i].name);
   }
 
-//   let productionNamesSet = new Set();
-// for (let i in movieDetails?.credits?.crew) {
-//   productionNamesSet.add(movieDetails.credits.crew[i].name);
-// }
-
-// let productionNames = Array.from(productionNamesSet);
 
 const crewMap = {};
 
@@ -91,14 +75,14 @@ for (let i in movieDetails?.credits?.crew) {
   const crewMember = movieDetails.credits.crew[i];
   const name = crewMember.name;
   const title = crewMember.job;
-  const image = crewMember.image;
+  const image = crewMember.profile_path;
 
   if (!crewMap[name]) {
     crewMap[name] = [{ title, image }];
   } else {
     crewMap[name].push({ title, image });
   }
-  console.log(image)
+  // console.log(image)
 }
 
 // Create an array of objects with name, titles, and image
@@ -109,6 +93,7 @@ const crewInfoArray = Object.entries(crewMap).map(([name, roles]) => ({
 }));
 
 console.log(crewInfoArray);
+console.log(movieDetails.reviews.results[1])
 
   return (
 
@@ -138,7 +123,7 @@ console.log(crewInfoArray);
                     </div>
                     <div>
                       <h4 className='text-sm sm:text-base font-bold'>Original Language:</h4>
-                      <p className=' text-sm'>{movieDetails.original_language}</p>
+                      <p className=' text-sm'>{movieDetails.original_language ? getL(movieDetails.original_language) : ''}</p>
                     </div>
                   </div>
                   <div>
@@ -168,8 +153,8 @@ console.log(crewInfoArray);
           <div className=' p-8' style={{ overflowX: 'hidden' }}>
               <h2 className=' mb-2'>Cast:</h2>
               <div className=" relative flex items-center group">
-          <IoIosArrowDropleftCircle onClick={slideLeft} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
-          <div id={sliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
+          <IoIosArrowDropleftCircle onClick={() => {slideLeft(castSliderId)}} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+          <div id={castSliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
               {movieDetails?.credits?.cast.map((actor) => {
                   return(
                     <Cast
@@ -181,15 +166,15 @@ console.log(crewInfoArray);
                 })
               }
               </div>
-              <IoIosArrowDroprightCircle onClick={slideRight} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+              <IoIosArrowDroprightCircle onClick={() => {slideRight(castSliderId)}} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
 
             </div>
           </div>
           <div className=' p-8' style={{ overflowX: 'hidden' }}> 
             <h2 className=' mb-2'>Production Crew:</h2>
             <div className=" relative flex items-center group">
-          <IoIosArrowDropleftCircle onClick={slideLeft} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
-          <div id={sliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
+          <IoIosArrowDropleftCircle onClick={() => {slideLeft(crewSliderId)}} className=' absolute left-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+          <div id={crewSliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
 
           {
                 crewInfoArray.map((crew)=>{
@@ -198,15 +183,29 @@ console.log(crewInfoArray);
                       key={crew.id}
                       name={crew.name} 
                       job={crew.titles} 
-                      image={crew.profile_path}/>
+                      image={crew.image}/>
                   )
                 })
               }
               </div>
-              <IoIosArrowDroprightCircle onClick={slideRight} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
+              <IoIosArrowDroprightCircle onClick={() => {slideRight(crewSliderId)}} className=' absolute right-0 text-m_white opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block' size={40} />
 
             </div>
 
+          </div>
+          <div>
+          {
+                movieDetails?.reviews?.results.map((review)=>{
+                  return(
+                    <Reviews
+                      key={review.id}
+                      author={review.author} 
+                      content={review.content} 
+                      date={review.updated_at}
+                      image={review.author_details.avatar_path}/>
+                  )
+                })
+              }
           </div>
         </div>
       </div>
