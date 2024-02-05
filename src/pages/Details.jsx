@@ -61,9 +61,10 @@ export default function Details(props) {
 
   let releaseYear = new Date(movieDetails.release_date);
 
-  const formatMoney = (amount) => {
-    return amount.toLocaleString('en-US');
-  };
+  const formatMoney = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
 
   let genres = [];
     for(let i in movieDetails.genres) {
@@ -84,30 +85,30 @@ export default function Details(props) {
 
 // let productionNames = Array.from(productionNamesSet);
 
-// const crewMap = {};
+const crewMap = {};
 
-// for (let i in movieDetails?.credits?.crew) {
-//   const crewMember = movieDetails.credits.crew[i];
-//   const name = crewMember.name;
-//   const title = crewMember.job;
-//   const image = crewMember.image;
+for (let i in movieDetails?.credits?.crew) {
+  const crewMember = movieDetails.credits.crew[i];
+  const name = crewMember.name;
+  const title = crewMember.job;
+  const image = crewMember.image;
 
-//   if (!crewMap[name]) {
-//     crewMap[name] = [{ title, image }];
-//   } else {
-//     crewMap[name].push({ title, image });
-//   }
-//   console.log(image)
-// }
+  if (!crewMap[name]) {
+    crewMap[name] = [{ title, image }];
+  } else {
+    crewMap[name].push({ title, image });
+  }
+  console.log(image)
+}
 
-// // Create an array of objects with name, titles, and image
-// const crewInfoArray = Object.entries(crewMap).map(([name, roles]) => ({
-//   name,
-//   titles: roles.map(role => role.title).join(', '),
-//   image: roles[0].image, // Assuming the crew member has the same image for all roles
-// }));
+// Create an array of objects with name, titles, and image
+const crewInfoArray = Object.entries(crewMap).map(([name, roles]) => ({
+  name,
+  titles: roles.map(role => role.title).join(', '),
+  image: roles[0].image, // Assuming the crew member has the same image for all roles
+}));
 
-// console.log(crewInfoArray);
+console.log(crewInfoArray);
 
   return (
 
@@ -143,11 +144,11 @@ export default function Details(props) {
                   <div>
                     <div>
                       <h4 className='text-sm sm:text-base font-bold'>Budget:</h4>
-                      <p className=' text-sm mb-2'>{movieDetails.budget}</p>
+                      <p className=' text-sm mb-2'>{formatMoney.format(movieDetails.budget)}</p>
                     </div>
                     <div>
                       <h4 className='text-sm sm:text-base font-bold'>Revenue:</h4>
-                      <p className=' text-sm'>{movieDetails.revenue}</p>
+                      <p className=' text-sm'>{formatMoney.format(movieDetails.revenue)}</p>
                     </div>
                   </div>
                   <div>
@@ -191,12 +192,12 @@ export default function Details(props) {
           <div id={sliderId} className=' w-full h-full overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative mx-10'>
 
           {
-                movieDetails?.credits?.crew.map((crew)=>{
+                crewInfoArray.map((crew)=>{
                   return(
                     <Cast
                       key={crew.id}
                       name={crew.name} 
-                      job={crew.job} 
+                      job={crew.titles} 
                       image={crew.profile_path}/>
                   )
                 })
