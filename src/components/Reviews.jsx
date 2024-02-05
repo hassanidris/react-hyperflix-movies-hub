@@ -6,23 +6,20 @@ const Reviews = ({ author, content, image, date }) => {
 
   return (
     
-    <div className=" w-[90px] sm:w-[130px] md:w-[170px] lg:w-[210px]  inline-block cursor-pointer p-2 shadow-lg">
-              <img
-  className="w-full h-full block object-cover object-top mb-2"
-  src={image ? `https://image.tmdb.org/t/p/w200/${image}` : defultImage}
-  alt={name}
-/>
-          
+    <div className=' flex justify-start items-start gap-4 border-[1px] border-m_gold rounded-xl p-8 mb-6'>
+        <div className=' w-[10%] rounded-[50%]'><img className="w-full h-full block object-cover object-top mb-2" src={image ? `https://image.tmdb.org/t/p/w200/${image}` : defultImage} alt={name} /></div>
+    
+        
+        <div className=' flex flex-col w-[90%]'>
+            <h4 className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm font-bold ">{author}</h4>
+            <p className=" text-m_white whitespace-normal font-open_sans text-xs italic mb-3">{date}</p>
+            <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{content}</p>
+            
+            
+        
+        </div>
               
-                <div className='flex flex-col gap-1 h-full'>
-                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm font-bold ">{author}</p>
-                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{content}</p>
-                
-                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{date}</p>
-                
-              </div>
-              
-            </div>
+    </div>
 
   )
 }
