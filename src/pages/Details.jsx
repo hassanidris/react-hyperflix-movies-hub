@@ -7,9 +7,9 @@ import { FaGlobe, FaImdb } from "react-icons/fa";
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 import Trailer from '../components/Trailer';
 import Cast from '../components/Cast';
-import Reviews from '../components/Reviews';
+//import Reviews from '../components/Reviews';
 
-export default function Details(props) {
+export default function Details() {
   let { id } = useParams();
   const {formatRuntime, formatDate} = useContext(MovieContext); 
   // const {slideLeft, slideRight, formatRuntime, formatDate} = useContext(MovieContext); 
