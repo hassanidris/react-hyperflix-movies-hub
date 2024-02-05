@@ -37,7 +37,7 @@ const SearchField = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button type="submit">Here</button>
+        <button type="submit" className="text-m_gold">Here</button>
       </div>
     </form>
   )
