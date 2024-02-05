@@ -13,6 +13,8 @@ const MovieContextProvider = (props) => {
     //     setSliderPosition((prevPosition) => prevPosition + 500);
     //   };
 
+    
+
     const slideLeft = (sliderId) => {
         let slider = document.getElementById(sliderId);
         slider.scrollLeft = Math.max(slider.scrollLeft - 500);
