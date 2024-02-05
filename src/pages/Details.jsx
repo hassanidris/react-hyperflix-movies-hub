@@ -93,7 +93,7 @@ const crewInfoArray = Object.entries(crewMap).map(([name, roles]) => ({
 }));
 
 console.log(crewInfoArray);
-console.log(movieDetails.reviews.results[1])
+console.log(movieDetails?.review?.results)
 
   return (
 
@@ -197,12 +197,8 @@ console.log(movieDetails.reviews.results[1])
           {
                 movieDetails?.reviews?.results.map((review)=>{
                   return(
-                    <Reviews
-                      key={review.id}
-                      author={review.author} 
-                      content={review.content} 
-                      date={review.updated_at}
-                      image={review.author_details.avatar_path}/>
+                    <p key={review}>author={review.author}</p>
+                      
                   )
                 })
               }
