@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Navbar from "./components/NavBar";
 import Footer from "./components/Footer";
+import SearchResults from "./pages/SearchResults";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Routes /*location={previousLocation || location}*/>
             <Route path="/" element={ <Home /> } />
             <Route path="/movie/:id" element={ <Details /> } />
+            <Route path="/search-results/:query" element={<SearchResults/>} />
           </Routes>
         </div>
         <Footer />

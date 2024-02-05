@@ -16,6 +16,7 @@ export default function Home() {
       //catching the lists 
       let list = await apiConfig.getHomeList();
       setMovieList(list)
+      console.log(list)
 
       //Catching HeroBanner (random)
       //filter the first list setted on apiConfig
