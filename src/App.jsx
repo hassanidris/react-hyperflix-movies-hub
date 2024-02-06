@@ -19,7 +19,6 @@ function App() {
             <Route path="/" element={ <Home /> } />
             <Route path="/movie/:id" element={ <Details /> } />
             <Route path="/search-results/:query" element={<SearchResults/>} />
-            
           </Routes>
         </div>
         <Footer />
