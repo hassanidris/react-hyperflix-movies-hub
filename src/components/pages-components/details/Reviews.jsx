@@ -1,4 +1,4 @@
-import defultImage from '../../../assets/default-user.png'
+import defaultImage from '../../../assets/default-user.png'
 
 const Reviews = ({ author, content, image, date }) => {
  
@@ -6,7 +6,9 @@ const Reviews = ({ author, content, image, date }) => {
   return (
     
     <div className=' flex justify-start items-start gap-4 border-[1px] border-m_gold rounded-xl p-8 mb-6'>
-        <div className=' w-[10%] rounded-[50%]'><img className="w-full h-full block object-cover object-top mb-2" src={image ? `https://image.tmdb.org/t/p/w200/${image}` : defultImage} alt={name} /></div>
+        <div className=' w-[10%] rounded-[50%]'>
+          <img className="w-full h-full block object-cover object-top mb-2" src={image ? `https://image.tmdb.org/t/p/w200/${image}` : defaultImage} alt={author} />
+        </div>
     
         
         <div className=' flex flex-col w-[90%]'>
