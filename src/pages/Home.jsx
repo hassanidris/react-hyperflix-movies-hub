@@ -1,6 +1,6 @@
 //components
-import HeroBanner from "../components/pages-components/home/HeroBanner";
-import Movies from "../components/pages-components/home/Movies";
+import HeroBanner from "../components/HeroBanner";
+import Movies from "../components/Movies";
 //data 
 import apiConfig from "../data/apiConfig";
 //hooks 
@@ -16,6 +16,7 @@ export default function Home() {
       //catching the lists 
       let list = await apiConfig.getHomeList();
       setMovieList(list)
+      console.log(list)
 
       //Catching HeroBanner (random)
       //filter the first list setted on apiConfig

@@ -1,11 +1,10 @@
 
 import { useState, useContext } from 'react';
-import { MovieContext } from '../../../context/MovieContextProvider';
+import { MovieContext } from '../context/MovieContextProvider';
 import { useNavigate } from "react-router-dom";
-import BtnDetails from "../../ui-components/BtnDetails";
+import BtnDetails from "./BtnDetails";
 //import {FaHeart, FaRegHeart } from 'react-icons/fa';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
-import Loading from '../../ui-components/Loading';
 
 const Movies = ({title, items}) => {
   const {slideLeft, slideRight} = useContext(MovieContext); 
@@ -30,8 +29,7 @@ const Movies = ({title, items}) => {
   //   slider.scrollLeft = Math.max(slider.scrollLeft + 500);
   // }
 
-  return items ? 
-  (
+  return(
 
     <div className=' px-8'>
       <h2 className="p-4 mt-10">{title}</h2>
@@ -43,7 +41,7 @@ const Movies = ({title, items}) => {
               <img className=" w-full h-auto block" src={`https://image.tmdb.org/t/p/w500${item.backdrop_path || item.poster_path}`} alt={item.original_title}/>
               <div className=" absolute top-0 left-0 w-full h-full hover:bg-m_black/80 opacity-0 hover:opacity-100 text-m_white">
               <div className='flex flex-col justify-center items-center gap-2 h-full text-center'>
-                <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm font-bold ">{item.title || item.name}</p>
+                <p className=" text-m_white whitespace-normal font-open_sans text-sm md:text-md font-bold ">{item.title || item.name}</p>
                 <BtnDetails onClick={() => {navigateToMovie(item.id)}} />
               </div>
               {/* <p>
@@ -57,7 +55,7 @@ const Movies = ({title, items}) => {
 
       </div>
     </div>
-  ) : (<Loading/>)
+  )
 }
 
 export default Movies;
