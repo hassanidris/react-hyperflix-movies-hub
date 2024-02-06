@@ -1,8 +1,7 @@
 import defultImage from '../../../assets/default-user.png'
 
 const Reviews = ({ author, content, image, date }) => {
-// console.log(defultImage);
-  
+ 
 
   return (
     

@@ -18,7 +18,6 @@ const SearchResults = () => {
       try {
         let data = await apiConfig.getSearchMovie(query);
         setResultsQuery(data.results)
-        console.log(data)
       } catch (error) {
         console.error('Error fetching data:', error);
       }

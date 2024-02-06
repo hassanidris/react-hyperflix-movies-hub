@@ -34,7 +34,6 @@ export default function Details() {
 
       let movie = await apiConfig.getMovieForId(id);
       setMovieDetails(movie)
-      console.log(movie)
 
     }
     loadDetails();
@@ -82,7 +81,6 @@ for (let i in movieDetails?.credits?.crew) {
   } else {
     crewMap[name].push({ title, image });
   }
-  // console.log(image)
 }
 
 // Create an array of objects with name, titles, and image
