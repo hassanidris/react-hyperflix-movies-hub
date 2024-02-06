@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import BtnDetails from "../../ui-components/BtnDetails";
-import Loading from "../../Loading";
 import Trailer from "../../ui-components/Trailer";
 
 const HeroBanner = ({itemBanner}) => {
@@ -64,7 +63,7 @@ const HeroBanner = ({itemBanner}) => {
       </div>
     </div>
   ) : 
-  (<Loading/>)
+  ('error')
 };
 
 export default HeroBanner;
