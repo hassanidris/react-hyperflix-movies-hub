@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import apiConfig from '../data/apiConfig';
 import BtnDetails from '../components/BtnDetails';
+import defultImage from '../assets/default-user.png';
+import { FiInfo } from "react-icons/fi";
 
 
 const SearchResults = () => {
@@ -26,22 +28,39 @@ const SearchResults = () => {
 
     fetchSearchResults();
   }, [query]);
+
+  const handleResultClick = (movieId) => {
+    navigateToMovie(movieId);
+    // Clear the search query when navigating to a movie
+    // You might want to clear it after a delay to ensure it's cleared after navigation
+    setTimeout(() => setResultsQuery([]), 100);
+  };
+
     return (
-      <div>
-        <h2>Search Results</h2>
-        {resultsQuery.length > 0 ? (
-        <ul>
-          {resultsQuery.map((movie) => (
-            <li className={'flex'} key={movie.id}>
-              <img src={`https://image.tmdb.org/t/p/w45${movie.poster_path}`} alt={movie.title} />
-              <p>{movie.title}</p>
-              <BtnDetails onClick={() => navigateToMovie(movie.id)} />           
-            </li>
-          ))}
-        </ul>
-        ) : (
-        <p>No results found</p>
-      )}
+      <div className=' pt-[120px]'>
+        <h2 className=' p-4'>Search Results</h2>
+        <div className=' px-8'>
+          {resultsQuery.length > 0 ? (
+          <ul className=' flex flex-wrap gap-4'>
+            {resultsQuery.map((movie) => (
+              <li className=' p-3 hover:bg-m_darkGrey cursor-pointer' key={movie.id}>
+                <Link to={{ pathname: `/movie/${movie.id}` }}>
+                <div className='w-[90vw] sm:w-[40vw] md:w-[28vw] lg:w-[19vw] h-[220px] inline-block overflow-hidden '>
+                  <img className='w-full h-full block object-cover' src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defultImage} alt={movie.title} />
+                </div>
+                <div className=' flex justify-between'>
+                  <p className=' text-sm'>{movie.title}</p>
+                  {/* <BtnDetails onClick={() => navigateToMovie(movie.id)} /> */}
+                  <FiInfo />
+                </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          ) : (
+          <p>No results found</p>
+                )}
+        </div>
       </div>
     );
   };
