@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import BtnDetails from "./BtnDetails";
-import Loading from "./Loading";
-import Trailer from "./Trailer";
+import BtnDetails from "../../ui-components/BtnDetails";
+import Loading from "../../Loading";
+import Trailer from "../../ui-components/Trailer";
 
 const HeroBanner = ({itemBanner}) => {
   const navigate = useNavigate();
