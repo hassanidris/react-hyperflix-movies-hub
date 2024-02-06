@@ -16,6 +16,7 @@ const SearchField = () => {
     e.preventDefault();
     if (query.trim() !== '') {
       navigate(`/search-results/${query}`);
+      setQuery('')
     } 
   }
 

@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import BtnDetails from "./BtnDetails";
-import Loading from "./Loading";
-import Trailer from "./Trailer";
+import BtnDetails from "../../ui-components/BtnDetails";
+import Loading from "../../ui-components/Loading";
+import Trailer from "../../ui-components/Trailer";
 
 const HeroBanner = ({itemBanner}) => {
   const navigate = useNavigate();
@@ -17,10 +17,9 @@ const HeroBanner = ({itemBanner}) => {
       genres.push( itemBanner.genres[i].name );
   }
 
-  //console.log(itemBanner)
-
   // flex items-end bg-gray-800 text-white h-[80vh] pt-20
-  return itemBanner ? (
+  return itemBanner ? 
+  (
     <div className="w-full h-[90vh] text-white font-open_sans relative">
       <div
         className="h-full w-full flex items-end"
@@ -63,8 +62,7 @@ const HeroBanner = ({itemBanner}) => {
         </div>
       </div>
     </div>
-  ) : 
-  (<Loading/>)
+  ) : (<Loading/>)
 };
 
 export default HeroBanner;
