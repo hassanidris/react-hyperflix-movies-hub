@@ -1,4 +1,4 @@
-import defultImage from '../assets/default-user.png'
+import defultImage from '../../../assets/default-user.png'
 
 const Reviews = ({ author, content, image, date }) => {
 // console.log(defultImage);
@@ -14,7 +14,6 @@ const Reviews = ({ author, content, image, date }) => {
             <h4 className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm font-bold ">{author}</h4>
             <p className=" text-m_white whitespace-normal font-open_sans text-xs italic mb-3">{date}</p>
             <p className=" text-m_white whitespace-normal font-open_sans text-xs md:text-sm">{content}</p>
-            
             
         
         </div>
