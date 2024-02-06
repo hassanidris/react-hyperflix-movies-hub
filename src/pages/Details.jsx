@@ -5,7 +5,7 @@ import apiConfig from '../data/apiConfig';
 import { TbPointFilled } from "react-icons/tb";
 import { FaGlobe, FaImdb } from "react-icons/fa";
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
-import Trailer from '../components/reusable-components/Trailer';
+import Trailer from '../components/ui-components/Trailer';
 import Cast from '../components/pages-components/details/Cast';
 import Reviews from '../components/pages-components/details/Reviews';
 
