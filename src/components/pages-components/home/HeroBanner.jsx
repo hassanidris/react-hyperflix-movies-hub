@@ -1,12 +1,24 @@
 import { useNavigate } from "react-router-dom";
 import BtnDetails from "../../ui-components/BtnDetails";
 import Trailer from "../../ui-components/Trailer";
+import Skeleton from "../../ui-components/Skeleton";
 
 const HeroBanner = ({itemBanner}) => {
   const navigate = useNavigate();
 
   const navigateToMovie = (movieId) => {
     navigate(`/movie/${movieId}`)
+  }
+
+  if (!itemBanner) {
+    // Render Skeleton while loading
+    return (
+      <div className="w-full h-[90vh] text-white font-open_sans relative">
+        <div className="h-full w-full flex items-end">
+          <Skeleton className="w-full h-full" />
+        </div>
+      </div>
+    );
   }
 
   let releaseYear = new Date(itemBanner.release_date);
