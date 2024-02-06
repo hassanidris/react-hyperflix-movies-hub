@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import apiConfig from '../data/apiConfig';
 import BtnDetails from '../components/ui-components/BtnDetails';
 import defultImage from '../assets/default-user.png';
+import defaultMovie from '../assets/movie-nf.png';
 import { FiInfo } from "react-icons/fi";
 
 
@@ -46,7 +47,7 @@ const SearchResults = () => {
               <li className=' p-3 hover:bg-m_darkGrey cursor-pointer' key={movie.id}>
                 <Link to={{ pathname: `/movie/${movie.id}` }}>
                 <div className='w-[90vw] sm:w-[40vw] md:w-[28vw] lg:w-[19vw] h-[220px] inline-block overflow-hidden '>
-                  <img className='w-full h-full block object-cover' src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defultImage} alt={movie.title} />
+                  <img className='w-full h-full block object-cover' src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovie} alt={movie.title} />
                 </div>
                 <div className=' flex justify-between'>
                   <p className=' text-sm'>{movie.title}</p>
