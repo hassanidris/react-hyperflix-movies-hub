@@ -1,17 +1,17 @@
 
 import { useState, useContext } from 'react';
-import { MovieContext } from '../../../context/MovieContextProvider';
+import { MovieContext } from '../context/MovieContextProvider';
 import { useNavigate } from "react-router-dom";
-import BtnDetails from "../../ui-components/BtnDetails";
+import BtnDetails from "./BtnDetails";
 //import {FaHeart, FaRegHeart } from 'react-icons/fa';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
-import Loading from '../../ui-components/Loading';
 
 const Movies = ({title, items}) => {
   const {slideLeft, slideRight} = useContext(MovieContext); 
   //const [like, setLike] = useState(false);
   const [sliderId] = useState(`slider-${Math.random().toString(36).substring(7)}`);
 
+  //console.log(items)
   const navigate = useNavigate();
 
   const navigateToMovie = (movieId) => {
@@ -29,8 +29,7 @@ const Movies = ({title, items}) => {
   //   slider.scrollLeft = Math.max(slider.scrollLeft + 500);
   // }
 
-  return items ? 
-  (
+  return(
 
     <div className=' px-8'>
       <h2 className="p-4 mt-10">{title}</h2>
@@ -56,7 +55,7 @@ const Movies = ({title, items}) => {
 
       </div>
     </div>
-  ) : (<Loading/>)
+  )
 }
 
 export default Movies;

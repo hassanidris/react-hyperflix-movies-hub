@@ -5,9 +5,9 @@ import apiConfig from '../data/apiConfig';
 import { TbPointFilled } from "react-icons/tb";
 import { FaGlobe, FaImdb } from "react-icons/fa";
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
-import Trailer from '../components/ui-components/Trailer';
-import Cast from '../components/pages-components/details/Cast';
-import Reviews from '../components/pages-components/details/Reviews';
+import Trailer from '../components/Trailer';
+import Cast from '../components/Cast';
+import Reviews from '../components/Reviews';
 
 export default function Details() {
   let { id } = useParams();
@@ -34,6 +34,7 @@ export default function Details() {
 
       let movie = await apiConfig.getMovieForId(id);
       setMovieDetails(movie)
+      console.log(movie)
 
     }
     loadDetails();
@@ -81,6 +82,7 @@ for (let i in movieDetails?.credits?.crew) {
   } else {
     crewMap[name].push({ title, image });
   }
+  // console.log(image)
 }
 
 // Create an array of objects with name, titles, and image

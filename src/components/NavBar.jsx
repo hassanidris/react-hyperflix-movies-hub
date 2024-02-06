@@ -1,6 +1,6 @@
 import SearchField from "./SearchField";
-import logo_desk from '../../assets/hyperflix-logo-desk.png';
-import logo_mob from '../../assets/hyperflix-logo-mob.png';
+import logo_desk from '../assets/hyperflix-logo-desk.png';
+import logo_mob from '../assets/hyperflix-logo-mob.png';
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
