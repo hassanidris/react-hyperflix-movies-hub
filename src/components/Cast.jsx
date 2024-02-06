@@ -1,6 +1,7 @@
-import defultImage from '../../../assets/default-user.png'
+import defultImage from '../assets/default-user.png'
 
 const Cast = ({ name, character, image, job }) => {
+// console.log(defultImage);
   
 
   return (
