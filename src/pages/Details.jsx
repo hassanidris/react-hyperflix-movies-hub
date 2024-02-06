@@ -9,6 +9,7 @@ import Trailer from '../components/ui-components/Trailer';
 import Cast from '../components/pages-components/details/Cast';
 import Reviews from '../components/pages-components/details/Reviews';
 
+
 export default function Details() {
   let { id } = useParams();
   const {formatRuntime, formatDate} = useContext(MovieContext); 
