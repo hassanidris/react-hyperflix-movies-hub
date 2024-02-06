@@ -1,6 +1,6 @@
 //components
-import HeroBanner from "../components/HeroBanner";
-import Movies from "../components/Movies";
+import HeroBanner from "../components/pages-components/home/HeroBanner";
+import Movies from "../components/pages-components/home/Movies";
 //data 
 import apiConfig from "../data/apiConfig";
 //hooks 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import apiConfig from '../data/apiConfig';
-import BtnDetails from '../components/BtnDetails';
+import BtnDetails from '../components/ui-components/BtnDetails';
 import defultImage from '../assets/default-user.png';
 import { FiInfo } from "react-icons/fi";
 

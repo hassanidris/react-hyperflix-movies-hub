@@ -1,8 +1,8 @@
 
 import { useState, useContext } from 'react';
-import { MovieContext } from '../context/MovieContextProvider';
+import { MovieContext } from '../../../context/MovieContextProvider';
 import { useNavigate } from "react-router-dom";
-import BtnDetails from "./BtnDetails";
+import BtnDetails from "../../ui-components/BtnDetails";
 //import {FaHeart, FaRegHeart } from 'react-icons/fa';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 
