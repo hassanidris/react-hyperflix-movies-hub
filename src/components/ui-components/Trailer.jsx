@@ -39,7 +39,7 @@ const Trailer = ({videoKey}) => {
       >
         <div>
           <div>
-            <iframe allow="autoplay" className=" w-full h-[370px]" src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`} allowFullScreen=''></iframe>
+            <iframe allow="autoplay" className=" w-full h-[410px]" src={`https://www.youtube.com/embed/${videoKey}?autoplay=1`} allowFullScreen=''></iframe>
           </div>
         </div>
       </Modal>
