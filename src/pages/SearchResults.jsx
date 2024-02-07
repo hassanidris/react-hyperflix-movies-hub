@@ -86,7 +86,7 @@ const SearchResults = () => {
                 </div>
                 <div className=' flex justify-between w-full'>
                   <p className=' text-sm'>{truncateTitle(movie.title, 25)}</p>
-                  <FiInfo />
+                  {/* <FiInfo /> */}
                 </div>
                 </Link>
               </li>

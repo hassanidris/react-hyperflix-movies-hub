@@ -43,8 +43,8 @@ const Movies = ({title, items}) => {
                 {/* <div className="absolute top-0 left-0 w-full h-full hover:bg-m_black/80 opacity-0 hover:opacity-100 text-m_white"> */}
                   <div className='flex justify-between items-center p-2'>
                   
-                  <p className=' text-sm'>{item.title || item.name}</p>
-                  <FiInfo />
+                  <p className=' text-sm'>{truncateTitle(item.title || item.name, 25)}</p>
+                  {/* <FiInfo /> */}
                 
                     {/* <p className="text-m_white whitespace-normal font-open_sans text-sm md:text-md font-bold ">{item.title || item.name}</p>
                     <BtnDetails onClick={() => { navigateToMovie(item.id) }} /> */}

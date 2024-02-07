@@ -6,7 +6,7 @@ const Cast = ({ name, character, image, job }) => {
 
   return (
     
-    <div className=" w-[140px] sm:w-[130px] md:w-[170px] lg:w-[210px]  inline-block cursor-pointer p-2 shadow-lg">
+    <div className=" w-[140px] sm:w-[130px] md:w-[170px] lg:w-[210px]  inline-block p-2 shadow-lg">
               <img
   className="w-full h-full block object-cover object-top mb-2"
   src={image ? `https://image.tmdb.org/t/p/w200/${image}` : defultImage}
