@@ -13,7 +13,7 @@ import Reviews from '../components/pages-components/details/Reviews';
 export default function Details() {
   let { id } = useParams();
   const {formatRuntime, formatDate} = useContext(MovieContext); 
-  // const {slideLeft, slideRight, formatRuntime, formatDate} = useContext(MovieContext); 
+  
   const [movieDetails, setMovieDetails] = useState({});
 
   
