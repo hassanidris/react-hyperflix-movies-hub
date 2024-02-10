@@ -15,10 +15,10 @@ export default {
         open_sans: ["Open Sans", "sans-serif"],
       },
       animation: {
-        bounce200: 'bounce 1s infinite 200ms',
-        bounce400: 'bounce 1s infinite 400ms',
+        bounce200: "bounce 1s infinite 200ms",
+        bounce400: "bounce 1s infinite 400ms",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
