@@ -1,7 +1,7 @@
 import { FaInfoCircle } from "react-icons/fa";
-const BtnDetails = ({onClick}) => {
+const BtnDetails = ({onClick, title}) => {
   return(
-    <button className="btn flex justify-center items-center gap-1" onClick={onClick}><FaInfoCircle /> More Details</button>
+    <button className="btn flex justify-center items-center gap-1" onClick={onClick}><FaInfoCircle /> {title}</button>
   )
 }
 export default BtnDetails;

@@ -77,14 +77,15 @@ const SearchResults = () => {
         <h2 className=' p-4'>Search Results</h2>
         <div className=' px-8'>
           
-          <ul className=' flex flex-wrap gap-4'>
+          {/* <ul className=' flex flex-wrap gap-4'> */}
+          <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
             {resultsQuery.map((movie) => (
               <li className=' p-3 hover:bg-m_darkGrey cursor-pointer' key={movie.id}>
                 <Link to={{ pathname: `/movie/${movie.id}` }}>
-                <div className='w-[80vw] sm:w-[40vw] md:w-[16vw] lg:w-[16vw] h-[220px] inline-block overflow-hidden '>
+                <div className='w-full h-[220px] sm:h-[220px] md:h-[220px] lg:h-[220px] xl:h-[220px] overflow-hidden'>
                   <img className='w-full h-full block object-cover' src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovie} alt={movie.title} />
                 </div>
-                <div className=' flex justify-between w-full'>
+                <div className=' flex justify-between w-full mt-2'>
                   <p className=' text-sm'>{truncateTitle(movie.title, 25)}</p>
                   {/* <FiInfo /> */}
                 </div>
