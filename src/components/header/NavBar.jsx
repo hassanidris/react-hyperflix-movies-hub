@@ -19,7 +19,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className=" bg-m_darkGrey flex items-center top-0 left-0 w-full justify-between gap-3 p-5 z-50">
+      <div className=" bg-m_darkGrey flex items-center top-0 left-0 w-full justify-between gap-3 p-5 z-50 sticky">
         <div>
           <Link to="/">
             <img className=" hidden sm:block w-44" src={logo_desk} alt="" />
