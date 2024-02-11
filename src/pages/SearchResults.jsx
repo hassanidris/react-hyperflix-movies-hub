@@ -1,33 +1,34 @@
-import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
-import apiConfig from '../data/apiConfig';
-import defaultMovie from '../assets/movie-nf.png';
-import { FiInfo } from "react-icons/fi";
-import Skeleton from '../components/ui-components/Skeleton';
-
+import { useContext, useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { MovieContext } from "../context/MovieContextProvider";
+import apiConfig from "../data/apiConfig";
+import defaultMovie from "../assets/movie-nf.png";
+import Skeleton from "../components/ui-components/Skeleton";
 
 const SearchResults = () => {
-  const navigate = useNavigate();
-
-  const navigateToMovie = (movieId) => {
-    navigate(`/movie/${movieId}`)
-  }
   const { query } = useParams();
   const [resultsQuery, setResultsQuery] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const { truncateTitle } = useContext(MovieContext);
+
+  const navigate = useNavigate();
+
+  const navigateToMovie = (movieId) => {
+    navigate(`/movie/${movieId}`);
+  };
 
   useEffect(() => {
     const fetchSearchResults = async () => {
       try {
         let data = await apiConfig.getSearchMovie(query);
-        setResultsQuery(data.results)
-        console.log(data)
+        setResultsQuery(data.results);
+        console.log(data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
       }
-      finally {
-        setLoading(false)
-    }
     };
 
     fetchSearchResults();
@@ -40,29 +41,25 @@ const SearchResults = () => {
     setTimeout(() => setResultsQuery([]), 100);
   };
 
-  const truncateTitle = (title, maxLength) => {
-    if (title.length > maxLength) {
-      return title.slice(0, maxLength) + '...';
-    }
-    return title;
-  };
-
   if (loading) {
     return (
-      <div className='pt-[120px]'>
-        <h2 className='p-4'>Search Results</h2>
-        <div className='px-8'>
-          <ul className='flex flex-wrap gap-4'>
+      <div className="pt-[120px]">
+        <h2 className="p-4">Search Results</h2>
+        <div className="px-8">
+          <ul className="flex flex-wrap gap-4">
             {[...Array(15)].map((_, index) => (
-              <li className='p-3 hover:bg-m_darkGrey cursor-pointer' key={index}>
-                <div className='w-[80vw] sm:w-[40vw] md:w-[16vw] lg:w-[16vw] h-[220px] inline-block overflow-hidden'>
-                  <Skeleton className='w-[600px] h-64 rounded-md' />
+              <li
+                className="p-3 hover:bg-m_darkGrey cursor-pointer"
+                key={index}
+              >
+                <div className="w-[80vw] sm:w-[40vw] md:w-[16vw] lg:w-[16vw] h-[220px] inline-block overflow-hidden">
+                  <Skeleton className="w-[600px] h-64 rounded-md" />
                 </div>
-                <div className='flex justify-between'>
-                  <p className='text-sm'>
-                    <Skeleton className='w-[100px] h-4 my-2' />
+                <div className="flex justify-between">
+                  <p className="text-sm">
+                    <Skeleton className="w-[100px] h-4 my-2" />
                   </p>
-                  <Skeleton className='w-[30px] h-4 my-2' />
+                  <Skeleton className="w-[30px] h-4 my-2" />
                 </div>
               </li>
             ))}
@@ -72,33 +69,39 @@ const SearchResults = () => {
     );
   }
 
-    return (
-      <div className=' pt-[120px]'>
-        <h2 className=' p-4'>Search Results</h2>
-        <div className=' px-8'>
-          
-          {/* <ul className=' flex flex-wrap gap-4'> */}
-          <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
-            {resultsQuery.map((movie) => (
-              <li className=' p-3 hover:bg-m_darkGrey cursor-pointer' key={movie.id}>
-                <Link to={{ pathname: `/movie/${movie.id}` }}>
-                <div className='w-full h-[220px] sm:h-[220px] md:h-[220px] lg:h-[220px] xl:h-[220px] overflow-hidden'>
-                  <img className='w-full h-full block object-cover' src={movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovie} alt={movie.title} />
+  return (
+    <div>
+      <h2 className=" p-4">Search Results</h2>
+      <div className=" px-8">
+        {/* <ul className=' flex flex-wrap gap-4'> */}
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          {resultsQuery.map((movie) => (
+            <li
+              className=" p-3 hover:bg-m_darkGrey cursor-pointer"
+              key={movie.id}
+            >
+              <Link to={{ pathname: `/movie/${movie.id}` }}>
+                <div className="w-full h-[220px] sm:h-[220px] md:h-[220px] lg:h-[220px] xl:h-[220px] overflow-hidden">
+                  <img
+                    className="w-full h-full block object-cover"
+                    src={
+                      movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                        : defaultMovie
+                    }
+                    alt={movie.title}
+                  />
                 </div>
-                <div className=' flex justify-between w-full mt-2'>
-                  <p className=' text-sm'>{truncateTitle(movie.title, 25)}</p>
-                  {/* <FiInfo /> */}
+                <div className=" flex justify-between w-full mt-2">
+                  <p className=" text-sm">{truncateTitle(movie.title, 25)}</p>
                 </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          
-        </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
-    );
-  };
-  
-  export default SearchResults;
+    </div>
+  );
+};
 
-
+export default SearchResults;

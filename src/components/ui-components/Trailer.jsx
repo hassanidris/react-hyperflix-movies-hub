@@ -15,7 +15,7 @@ const Trailer = ({videoKey}) => {
 
   return videoKey ? (
     <div>
-      <button className="btn-outline flex justify-center items-center gap-1" onClick={openModal}><FaPlay /> Watch Trailer</button>
+      <button className="btn-outline flex justify-center items-center gap-1 rounded-lg" onClick={openModal}><FaPlay /> Watch Trailer</button>
       <Modal 
         style={{
           overlay: {

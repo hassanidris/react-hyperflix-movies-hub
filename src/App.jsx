@@ -5,26 +5,45 @@ import Details from "./pages/Details";
 import Navbar from "./components/header/NavBar";
 import Footer from "./components/Footer/Footer";
 import SearchResults from "./pages/SearchResults";
-
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Account from "./pages/Account";
+import { AuthContextProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/header/ProtectedRoute";
 
 function App() {
   return (
-    <div>
+    <div className=" h-[100vh] flex flex-col">
       <MovieContextProvider>
-        <BrowserRouter>
-        <Navbar/>
-        <div style={{ color: 'white'}}>
-          <Routes /*location={previousLocation || location}*/>
-            <Route path="/" element={ <Home /> } />
-            <Route path="/movie/:id" element={ <Details /> } />
-            <Route path="/search-results/:query" element={<SearchResults/>} />
-          </Routes>
-        </div>
-        <Footer />
-        </BrowserRouter>
+        <AuthContextProvider>
+          <BrowserRouter>
+            <Navbar />
+            <div className=" grow" style={{ color: "white" }}>
+              <Routes /*location={previousLocation || location}*/>
+                <Route path="/" element={<Home />} />
+                <Route path="/movie/:id" element={<Details />} />
+                <Route
+                  path="/search-results/:query"
+                  element={<SearchResults />}
+                />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route
+                  path="/account"
+                  element={
+                    <ProtectedRoute>
+                      <Account />
+                    </ProtectedRoute>
+                  }
+                />
+              </Routes>
+            </div>
+            <Footer />
+          </BrowserRouter>
+        </AuthContextProvider>
       </MovieContextProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
