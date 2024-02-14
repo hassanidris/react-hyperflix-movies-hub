@@ -51,7 +51,7 @@ const SearchField = () => {
         />
         <button
           type="submit"
-          className=" text-m_white absolute end-2.5 bottom-2.5 bg-m_gold hover:bg-m_lightGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-2"
+          className=" text-m_black absolute end-2.5 bottom-2.5 bg-m_gold hover:bg-m_lightGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-2"
         >
           Search
         </button>

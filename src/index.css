@@ -22,7 +22,7 @@
     }
 
     .btn {
-        @apply text-m_white bg-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-sm
+        @apply text-m_black bg-m_gold border-[1px] border-m_gold py-2 px-4 cursor-pointer text-sm
 
     }
     .btn:hover {
@@ -34,7 +34,7 @@
 
     }
     .btn-outline:hover {
-        @apply text-m_white bg-m_gold border-[1px] border-m_gold
+        @apply text-m_black bg-m_gold border-[1px] border-m_gold
     }
 
     .btn-outline-sm {

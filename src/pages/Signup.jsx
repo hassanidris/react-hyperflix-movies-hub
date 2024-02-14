@@ -45,7 +45,7 @@ const Signup = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className=" capitalize border border-m_gold bg-m_gold hover:bg-m_darkGrey hover:text-m_gold py-3 my-6 rounded-lg">
+                <button className=" capitalize border text-m_black border-m_gold bg-m_gold hover:bg-m_darkGrey hover:text-m_gold py-3 my-6 rounded-lg">
                   sign up
                 </button>
                 <p className="my-4">

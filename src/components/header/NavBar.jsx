@@ -39,7 +39,7 @@ const Navbar = () => {
 
             <button
               onClick={handleLogout}
-              className=" capitalize text-m_white bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-1"
+              className=" capitalize text-m_black bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-1"
             >
               logout
             </button>
@@ -52,7 +52,7 @@ const Navbar = () => {
               </button>
             </Link>
             <Link to="/signup">
-              <button className=" capitalize text-m_white bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-2">
+              <button className=" capitalize text-m_black bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-2">
                 sign up
               </button>
             </Link>
