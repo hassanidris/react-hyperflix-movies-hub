@@ -72,7 +72,7 @@ const Movies = ({ title, items }) => {
                         src={`https://image.tmdb.org/t/p/w500${
                           item.backdrop_path || item.poster_path
                         }`}
-                        alt={item.original_title}
+                        alt={item.title}
                       />
                       {/* <div className="absolute top-0 left-0 w-full h-[150px] hover:bg-m_black/80 opacity-0 hover:opacity-100 text-m_white" /> */}
                     </div>
