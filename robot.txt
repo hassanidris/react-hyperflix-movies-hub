@@ -1,10 +1,8 @@
 User-agent: *
-Disallow: /samples/
-Disallow: /samples
-Disallow: /functions-bridge/
-Disallow: /functions-bridge
-Disallow: /netlify-graph-bridge/
-Disallow: /netlify-graph-bridge
-Disallow: /asset-optimization-bridge/
-Disallow: /asset-optimization-bridge
-Sitemap: https://docs.netlify.com/sitemap.xml
+Allow: /
+
+# Sitemaps
+# Sitemap: https://www.dailymail.co.uk/sitemap/
+
+
+# https://hyperflix-site.netlify.app/
