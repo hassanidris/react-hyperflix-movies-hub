@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-# Sitemap: https://www.dailymail.co.uk/sitemap/
+Sitemap: https://hyperflix-site.netlify.app/sitemap/
 
 
-# https://hyperflix-site.netlify.app/
