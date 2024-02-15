@@ -44,5 +44,9 @@
     .btn-outline-sm:hover {
         @apply text-m_white bg-m_gold border-[1px] border-m_gold
     }
+
+    .footer {
+        @apply flex justify-center items-center h-16 bg-m_darkGrey w-screen text-center p-4 text-m_white font-semibold mt-10
+    }
 }
 

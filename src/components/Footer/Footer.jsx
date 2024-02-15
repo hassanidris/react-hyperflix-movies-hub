@@ -1,7 +1,9 @@
 const Footer = () => {
   return (
-    <div className=' bg-m_darkGrey w-screen text-center p-4 text-m_white font-semibold mt-10'>&copy; {new Date().getFullYear()} HyperFlix AB</div>
-  )
-}
+    <footer className="footer">
+      &copy; {new Date().getFullYear()} HyperFlix AB
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
