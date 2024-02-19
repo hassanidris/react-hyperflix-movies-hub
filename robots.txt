@@ -2,6 +2,6 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://hyperflix-site.netlify.app/sitemap/
+Sitemap: https://hyperflix-site.netlify.app/sitemap.xml
 
 
