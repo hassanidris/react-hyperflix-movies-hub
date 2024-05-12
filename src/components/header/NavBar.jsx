@@ -19,55 +19,50 @@ const Navbar = () => {
   };
   return (
     <>
-      <div className=" bg-m_darkGrey flex items-center top-0 left-0 w-full justify-between gap-3 p-5 z-50 sticky">
+      <div className=" bg-m_darkGrey grid grid-cols-2 sm:grid-cols-3 top-0 left-0 w-full justify-between gap-3 p-5 z-50 sticky">
         <div>
           <Link to="/">
             <img
-              className=" hidden sm:block w-44"
+              className=" block w-44"
               src={logo_desk}
-              alt=""
-              aria-label="logo of HyperFlix"
-            />
-            <img
-              className=" block sm:hidden w-12"
-              src={logo_mob}
               alt=""
               aria-label="logo of HyperFlix"
             />
           </Link>
         </div>
-        <div className=" flex justify-center items-center gap-4">
+        <div className=" order-3 col-span-2 sm:col-span-1 sm:order-none">
           <SearchField />
         </div>
-        {user?.email ? (
-          <div className=" flex">
-            <Link to="/account">
-              <button className=" capitalize text-m_gold py-2 px-4 cursor-pointer text-sm hover:text-m_white">
-                <VscAccount size={30} />
+        <div className=" justify-self-end self-center">
+          {user?.email ? (
+            <div className=" flex">
+              <Link to="/account">
+                <button className=" capitalize text-m_gold py-2 px-4 cursor-pointer text-sm hover:text-m_white">
+                  <VscAccount size={30} />
+                </button>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className=" capitalize text-m_black bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-1"
+              >
+                logout
               </button>
-            </Link>
-
-            <button
-              onClick={handleLogout}
-              className=" capitalize text-m_black bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-1"
-            >
-              logout
-            </button>
-          </div>
-        ) : (
-          <div className=" flex">
-            <Link to="/login">
-              <button className=" capitalize text-m_gold py-2 px-4 cursor-pointer text-sm hover:text-m_white">
-                login
-              </button>
-            </Link>
-            <Link to="/signup">
-              <button className=" capitalize text-m_black bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-2">
-                sign up
-              </button>
-            </Link>
-          </div>
-        )}
+            </div>
+          ) : (
+            <div className=" flex">
+              <Link to="/login">
+                <button className=" capitalize text-m_gold py-2 px-4 cursor-pointer text-sm hover:text-m_white">
+                  login
+                </button>
+              </Link>
+              <Link to="/signup">
+                <button className=" capitalize text-m_black bg-m_gold hover:bg-m_darkGrey hover:text-m_gold border border-m_gold font-medium rounded-lg text-sm px-4 py-2">
+                  sign up
+                </button>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

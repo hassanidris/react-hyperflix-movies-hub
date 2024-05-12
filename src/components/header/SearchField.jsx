@@ -16,7 +16,7 @@ const SearchField = () => {
   };
 
   return (
-    <form className=" w-[70vw] sm:w-[50vw]" onSubmit={searchMovies}>
+    <form className=" w-full" onSubmit={searchMovies}>
       <label
         htmlFor="default-search"
         className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
