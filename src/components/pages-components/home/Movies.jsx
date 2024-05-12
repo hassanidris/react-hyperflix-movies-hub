@@ -79,7 +79,10 @@ const Movies = ({ title, items }) => {
                   </Link>
                   <div className="flex justify-between items-center p-2">
                     <p className=" text-sm">
-                      {truncateTitle(item.title || item.name, 25)}
+                      {truncateTitle(
+                        item.title || item.name,
+                        window.innerWidth <= 768 ? 15 : 25
+                      )}
                     </p>
                     <p
                       onClick={() => markFavShow(index)}
